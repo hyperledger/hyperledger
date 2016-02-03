@@ -1,2 +1,2 @@
-# hyperledger
-Hyperledger is being redeveloped and will be open sourced once stable. Please see digitalasset.com/hyperledger/index.html for more info.
+# Hyperledger Project
+Hyperledger Project is being organized as a Collaborative Project at The Linux Foundation. Check hyperledger.org for more information.
