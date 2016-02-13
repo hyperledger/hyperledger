@@ -7,9 +7,9 @@ Hyperledger is built around the principle of least power. The data structure wit
 
 ## Simple query API
 
-   // query the network for any arbitrary value
-   network.ask('citybank.accounts'); // get a list of all accounts at citybank (just an example)
-   network.ask('citybank.accounts.gS93Kfas3Fkwe3.balances.USD');
+    // query the network for any arbitrary value
+    network.ask('citybank.accounts'); // get a list of all accounts at citybank (just an example)
+    network.ask('citybank.accounts.gS93Kfas3Fkwe3.balances.USD');
 
 ## Participate in the Network
 
