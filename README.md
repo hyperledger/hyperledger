@@ -40,3 +40,6 @@ Quantumledger is built around the [principle of least power](http://blog.codingh
     // For the query about the information 'name', we can assume that any return value is true, but we don't really care about that information.
     // More interesting would be a query like `network.ask('morganstanly.accounts.fe3za9f9e9as.balances.USD')`
     
+## Implementation & Networking
+
+Quantumledger transmits information via simple HTTPS. HTTPS is the most widely used networking protocol to transfer information in a secure way without risking a man-in-the-middle attack and has now power on its own. An implementation would simply make a request to `https://[ip-address]/the.information.im.asking.for.json`. The data (JSON stream) returned can potentially be extremly large. Therefore the implementation should be able to process the JSON stream even though it is not complete yet in order to determine if enough information has been received and the request can be terminated. We can - for the start - try to use a streaming library like oboe.js. Although in the future we should implement our own solution.
