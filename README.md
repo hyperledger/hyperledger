@@ -9,7 +9,7 @@ Quantumledger uses a new mechanism called "Proof of Trust". In its essence, it i
 
 ## Principle of least power
 
-Hyperledger is built around the principle of least power. The data structure with the least power imaginable is a POJO. It is understood by any developer and almost any platform and more-or-less interchangable with any JSON structure and can be understood by any modern JSON-based API.
+Quantumledger is built around the [principle of least power](http://blog.codinghorror.com/the-principle-of-least-power/). The data structure with the least power imaginable is a POJO. It is understood by any developer and almost any platform and more-or-less interchangable with any JSON structure and can be understood by any modern JSON-based API.
 
 ## Simple query API
 
