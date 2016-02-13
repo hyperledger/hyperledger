@@ -23,7 +23,7 @@ Quantumledger is built around the [principle of least power](http://blog.codingh
     var ledger = {}; 
     
     // Add information to the ledger
-    var ledger['name'] = 'Stefan';
+    ledger['name'] = 'Stefan';
     
     // Create a new network that only knows about the information I added myself
     var network = Hyperledger.createNetwork(ledger); 
@@ -46,6 +46,28 @@ Just ask the network for more addresses
 
     // return a list of more addresses
     network.ask('trusted_addresses');
+
+## Ledger Structure & Asking
+
+Examples
+
+    var ledger = {
+      users:  {
+        fsd3fsd: {
+          name: 'Peter',
+          social_security_number: 234234234
+        },
+        jejf3jf: {
+          name: 'Stefan,
+          social_security_number: 123455
+        }
+      },
+      name: 'root'
+    }
+    
+    ask('name'); // => "root"
+    ask('users'); // => {"fsd3fsd":{"name": "Peter","social_security_number": 234234234},"jejf3jf":{"name": "Stefan","social_security_number": 123455}}
+    ask('users.fsd3fsd.name'); // => "Peter"
 
 ## Implementation & Networking
 
