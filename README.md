@@ -1,5 +1,5 @@
-# Hyperledger Project
-Hyperledger Project is a new Collaborative Project at The Linux Foundation. The technical community is just getting started and will be adding code to the repository in the coming weeks. Check hyperledger.org for more information about joining the mailing lists and participating in the conversations.
+# Quantumledger Project
+Quantumledger Project is a proposal for a new kind of ledger to be used by the Hyperledger Project as a starting point. At the moment, it only specifies an API through example usages. No real implementation. 
 
 ## Principle of least power
 
