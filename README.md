@@ -9,7 +9,7 @@ Quantumledger uses a new mechanism called "Proof of Trust". In its essence, it i
 
 ### Chain of Trust, example
 
-Individual `a` learns information `A`. `a` believes that `A` is true, therefor he trusts that information. He adds `A` to his ledger and shares this information. Individual `b` asks `a` for information. `a` shares information `A` with `b`. By sharing `A` with `b`, `A` has demonstrated trust in `A`. `a` has shown proof of trust in `A`. `b` can now decide if he thinks `A` is true or not. If `b` trusts `a`, he should be able to conclude that `A` is true and can now proof trust by also sharing that piece of information, joining the chain of trust.
+Individual `alice` learns information `A`. `alice` believes that `A` is true, therefor he trusts that information. He adds `A` to his ledger and shares this information. Individual `bob` asks `alice` for information. `alice` shares information `A` with `bob`. By sharing `A` with `bob`, `alice` has demonstrated trust in `A`. `alice` has shown proof of trust in `A`. `bob` can now decide if he thinks `A` is true or not. If `bob` trusts `alice`, he should be able to conclude that `A` is true. `bob` is now able to proof trust by sharing `A` among the network, joining the chain of trust.
 
 ## Principle of least power
 
