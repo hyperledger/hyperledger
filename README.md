@@ -18,11 +18,11 @@ Quantumledger is built around the [principle of least power](http://blog.codingh
 ## Simple query API
 
     // query the network for any arbitrary value
-    network.ask('citybank/accounts'); // get a list of all accounts at citybank (just an example)
-    network.ask('citybank/accounts/gS93Kfas3Fkwe3/balances/USD');
+    network.ask('/citybank/accounts'); // get a list of all accounts at citybank (just an example)
+    network.ask('/citybank/accounts/gS93Kfas3Fkwe3/balances/USD');
     
     // download all information stored across the known network
-    network.ask('**/*');
+    network.ask('/**/*');
 
 ## Participate in the Network
 
