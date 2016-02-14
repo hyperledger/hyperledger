@@ -38,14 +38,23 @@ Quantumledger is built around the [principle of least power](http://blog.codingh
     // Include information of a node that I trust via its IP address and public key
     var otherNode = network.include('240f:11:9b79:1:91af:3f1b:d463:8f23/[public key]')
     
-    // Query the network for information
+    // Ask the network for information
     network.ask('name').listen(function(node, answer) {
       console.log(node + ' gave the answer: ' + answer);
     });
     
-    // Deciding the "true" response: It's up to the developer. Recommended is to wait a little bit and then take the majority as the true answer
-    // For the query about the information 'name', we can assume that any return value is true, but we don't really care about that information.
-    // More interesting would be a query like `network.ask('morganstanly/accounts/fe3za9f9e9as/balances/USD')`
+    // Ask a node for information
+    otherNode.ask('name').listen(function(node, answer) {
+      console.log(node + ' gave the answer: ' + answer);
+    });
+    
+    
+### Deciding whether information is true or not
+
+Answering this question is up to the developer. The example implementation simply waits a little while while it collects answers and then stores the majority response in its ledger.
+However, this will NOT work all cases. Some information has only one true source of origin. For example, the amount of money in a bank account. The developer will have to discard answers from nodes that are not the bank, or simply not even ask those nodes.
+However, some information, like `name` are only true within the boundaries of one node. Thus, it does not make sense to ask the network for the information `name` and then store this information within our own ledger.
+More interesting would be a query like `network.ask('morganstanly/accounts/fe3za9f9e9as/balances/USD')`
 
 ## Node Discovery
 
@@ -77,6 +86,15 @@ Examples
     ask('users/*'); // => {"fsd3fsd": ["name", "social_security_number"], "jejf3jf": ["name", "social_security_number"]}
     ask('users/**/*'); // => {"fsd3fsd":{"name": "Peter","social_security_number": 234234234},"jejf3jf":{"name": "Stefan","social_security_number": 123455}}
     ask('users/fsd3fsd/name'); // => "Peter"
+    
+## Transaction
+
+To make a transaction, all you have to do is change a value in your ledger.
+
+    ledger.stefan.money += 50
+    ledger.peter.money -= 50
+    
+The next time somebody asks you for this information, you give them the updated information. If you have shown enough proof of trust in the past, people will assume that the updated information is correct.
 
 ## Implementation & Networking
 
