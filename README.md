@@ -86,11 +86,14 @@ Examples
       name: 'root'
     }
     
-    ask('name'); // => "root"
-    ask('users'); // => ["fsd3fsd", "jejf3jf"]
-    ask('users/*'); // => {"fsd3fsd": ["name", "social_security_number"], "jejf3jf": ["name", "social_security_number"]}
-    ask('users/**/*'); // => {"fsd3fsd":{"name": "Peter","social_security_number": 234234234},"jejf3jf":{"name": "Stefan","social_security_number": 123455}}
-    ask('users/fsd3fsd/name'); // => "Peter"
+    ask('/name'); // => ["root"]
+    ask('/name/*'); // => {}
+    ask('/users'); // => ["fsd3fsd", "jejf3jf"]
+    ask('/users/*'); // => {"fsd3fsd": ["name", "social_security_number"], "jejf3jf": ["name", "social_security_number"]}
+    ask('/users/**/*'); // => {"fsd3fsd":{"name": "Peter","social_security_number": 234234234},"jejf3jf":{"name": "Stefan","social_security_number": 123455}}
+    ask('/**/name') // => ['Peter', 'Stefan']
+    ask('/users/*/name') // => ['Peter', 'Stefan']
+    ask('/users/fsd3fsd/name'); // => ["Peter"]
     
 ## Transactions
 
