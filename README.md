@@ -52,9 +52,12 @@ Quantumledger is built around the [principle of least power](http://blog.codingh
 ### Deciding whether information is true or not
 
 Answering this question is up to the developer. The example implementation simply waits a little while while it collects answers and then stores the majority response in its ledger.
+
 However, this will NOT work all cases. Some information has only one true source of origin. For example, the amount of money in a bank account. The developer will have to discard answers from nodes that are not the bank, or simply not even ask those nodes.
-However, some information, like `name` are only true within the boundaries of one node. Thus, it does not make sense to ask the network for the information `name` and then store this information within our own ledger.
-More interesting would be a query like `network.ask('morganstanly/accounts/fe3za9f9e9as/balances/USD')`
+
+Further, some information, like `name` are only true within the boundaries of one node. Thus, it does not make sense to ask the network for the information `name` and then store this information within our own ledger.
+
+The world has become crowded. Just be careful who you trust with what information.
 
 ## Node Discovery
 
