@@ -92,14 +92,9 @@ Examples
     ask('users/**/*'); // => {"fsd3fsd":{"name": "Peter","social_security_number": 234234234},"jejf3jf":{"name": "Stefan","social_security_number": 123455}}
     ask('users/fsd3fsd/name'); // => "Peter"
     
-## Transaction
+## Transactions
 
-To make a transaction, all you have to do is change a value in your ledger.
-
-    ledger.stefan.money += 50
-    ledger.peter.money -= 50
-    
-The next time somebody asks you for this information, you give them the updated information. If you have shown enough proof of trust in the past, people will assume that the updated information is correct.
+TODO
 
 ## Implementation & Networking
 
