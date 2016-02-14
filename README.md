@@ -7,6 +7,10 @@ Most crypto-currency networks derive value of the information they contain by sh
 
 Quantumledger uses a new mechanism called "Proof of Trust". In its essence, it is very simple. It means deriving value from trust. Trust in this context means trust that the information provided is correct. The question is "how does one proof trust"? This can be answered by human nature. If we acquire a piece of information that we trust, we feel confident and comfortable sharing that piece of information. By sharing a piece of information we therefor have proven "trust" in this information. Since false information (also known as "lies") are mostly created arbitrarily by individuals, they will appear as outliers when asking the network for information and are overwhelmed by information the majority of the network has proven trust in. This way it is easy to distinguish a lie (false information) from true information.
 
+### Chain of Trust, example
+
+Individual `a` learns information `A`. `a` believes that `A` is true, therefor he trusts that information. He adds `A` to his ledger and shares this information. Individual `b` asks `a` for information. `a` shares information `A` with `b`. By sharing `A` with `b`, `A` has demonstrated trust in `A`. `a` has shown proof of trust in `A`. `b` can now decide if he thinks `A` is true or not. If `b` trusts `a`, he should be able to conclude that `A` is true and can now proof trust by also sharing that piece of information, joining the chain of trust.
+
 ## Principle of least power
 
 Quantumledger is built around the [principle of least power](http://blog.codinghorror.com/the-principle-of-least-power/). The data structure with the least power imaginable is a POJO. It is understood by any developer and almost any platform and more-or-less interchangable with any JSON structure and can be understood by any modern JSON-based API.
@@ -28,8 +32,8 @@ Quantumledger is built around the [principle of least power](http://blog.codingh
     // Create a new network that only knows about the information I added myself
     var network = Hyperledger.createNetwork(ledger); 
     
-    // Include information of a node that I trust via its IP address
-    var otherNode = network.include('240f:11:9b79:1:91af:3f1b:d463:8f23')
+    // Include information of a node that I trust via its IP address and public key
+    var otherNode = network.include('240f:11:9b79:1:91af:3f1b:d463:8f23/[public key]')
     
     // Query the network for information
     network.ask('name').listen(function(node, answer) {
@@ -71,4 +75,4 @@ Examples
 
 ## Implementation & Networking
 
-Quantumledger transmits information via simple HTTPS. HTTPS is the most widely used networking protocol to transfer information in a secure way without risking a man-in-the-middle attack and has now power on its own. An implementation would simply make a request to `https://[ip-address]/the.information.im.asking.for.json`. The data (JSON stream) returned can potentially be extremly large. Therefore the implementation should be able to process the JSON stream even though it is not complete yet in order to determine if enough information has been received and the request can be terminated. We can - for the start - try to use a streaming library like oboe.js. Although in the future we should implement our own solution.
+Quantumledger transmits information via simple HTTP. HTTP is the most widely used networking protocol to transfer information. An implementation would simply make a request to `http://[ip-address]/[publickey]/the.information.im.asking.for.json`. The data (JSON stream) returned can potentially be extremly large. Therefore the implementation should be able to process the JSON stream even though it is not complete yet in order to determine if enough information has been received and the request can be terminated. We can - for the start - try to use a streaming library like oboe.js. Although in the future we should implement our own solution.
