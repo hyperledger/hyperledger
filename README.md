@@ -27,4 +27,6 @@ Digital Asset's Hyperledger candidate contribution is an enterprise ready blockc
 
 ## Blockstream Proposed Contribution
 
-Blockstream proposes to contribute its Elements codebase available at [https://github.com/ElementsProject/elements](https://github.com/ElementsProject/elements)
+Blockstream is contributing [the Elements Project](https://elementsproject.org), a modularized fork of the Bitcoin codebase that adds several major improvements called "Elements".  Elements are composable features that allow a blockchain's attributes to be customized, including [Confidential Transactions](https://elementsproject.org/elements/confidential-transactions), [Segregated Witness](https://elementsproject.org/elements/segregated-witness), and [Deterministic Pegs](https://elementsproject.org/elements/deterministic-pegs).  Sidechains are interoperable blockchains implementing atomic, cross-chain transactions using a choice of federated, permissioned, or decentralized consensus models.  This model allows HyperLedger to interoperate with the existing developer community – sharing progress on testing, scalability, and features – by allowing anyone in the world to utilize shared infrastructure to solve domain-specific problems on purpose-built sidechains.
+
+[https://github.com/ElementsProject/elements](https://github.com/ElementsProject/elements)
