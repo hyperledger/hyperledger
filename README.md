@@ -1,7 +1,11 @@
 # Hyperledger Project
 Hyperledger Project is a new Collaborative Project at The Linux Foundation. The technical community is just getting started and will be adding code to the repository in the coming weeks. Check hyperledger.org for more information about joining the mailing lists and participating in the conversations.
 
-Thank you for your interest in the Hyperledger Project. Currently there have been four proposed contributions with potentially others in the future. At present the TSC and community are looking at ways to build a platform that can provide common plumbing for a wide range of use cases and value added solutions on top. Please keep in mind all of the proposals below are simply proposals and that the community will evaluate various ways to get started. Below are the links to the codebases for evaluation purposes, in no particular order:
+Thank you for your interest in the Hyperledger Project. Currently there have been proposed contributions with potentially others in the future. At present the TSC and community are looking at ways to build a platform that can provide common plumbing for a wide range of use cases and value added solutions on top. Please keep in mind all of the proposals below are simply proposals and that the community will evaluate various ways to get started. Below are the links to the codebases for evaluation purposes, in no particular order:
+
+## Hyperledger Incubator
+
+The LF has setup an incubator org for various proposals and prototyping efforts. The incubator GitHub org is available at [https://github.com/orgs/hyperledger-incubator](https://github.com/orgs/hyperledger-incubator)
 
 ## Ripple Proposed Contribution
 
