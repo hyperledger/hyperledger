@@ -1,36 +1,73 @@
-# Hyperledger Project
-Hyperledger Project is a new Collaborative Project at The Linux Foundation. The technical community is just getting started and will be adding code to the repository in the coming weeks. Check hyperledger.org for more information about joining the mailing lists and participating in the conversations.
+## Ethereum Go
 
-Thank you for your interest in the Hyperledger Project. Currently there have been proposed contributions with potentially others in the future. At present the TSC and community are looking at ways to build a platform that can provide common plumbing for a wide range of use cases and value added solutions on top. Please keep in mind all of the proposals below are simply proposals and that the community will evaluate various ways to get started. Below are the links to the codebases for evaluation purposes, in no particular order:
+Official golang implementation of the Ethereum protocol
 
-## Hyperledger Incubator
+          | Linux   | OSX | ARM | Windows | Tests
+----------|---------|-----|-----|---------|------
+develop   | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=Linux%20Go%20develop%20branch)](https://build.ethdev.com/builders/Linux%20Go%20develop%20branch/builds/-1) | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=Linux%20Go%20develop%20branch)](https://build.ethdev.com/builders/OSX%20Go%20develop%20branch/builds/-1) | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=ARM%20Go%20develop%20branch)](https://build.ethdev.com/builders/ARM%20Go%20develop%20branch/builds/-1) | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=Windows%20Go%20develop%20branch)](https://build.ethdev.com/builders/Windows%20Go%20develop%20branch/builds/-1) | [![Buildr+Status](https://travis-ci.org/ethereum/go-ethereum.svg?branch=develop)](https://travis-ci.org/ethereum/go-ethereum) [![codecov.io](http://codecov.io/github/ethereum/go-ethereum/coverage.svg?branch=develop)](http://codecov.io/github/ethereum/go-ethereum?branch=develop)
+master    | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=Linux%20Go%20master%20branch)](https://build.ethdev.com/builders/Linux%20Go%20master%20branch/builds/-1) | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=OSX%20Go%20master%20branch)](https://build.ethdev.com/builders/OSX%20Go%20master%20branch/builds/-1) | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=ARM%20Go%20master%20branch)](https://build.ethdev.com/builders/ARM%20Go%20master%20branch/builds/-1) | [![Build+Status](https://build.ethdev.com/buildstatusimage?builder=Windows%20Go%20master%20branch)](https://build.ethdev.com/builders/Windows%20Go%20master%20branch/builds/-1) | [![Buildr+Status](https://travis-ci.org/ethereum/go-ethereum.svg?branch=master)](https://travis-ci.org/ethereum/go-ethereum) [![codecov.io](http://codecov.io/github/ethereum/go-ethereum/coverage.svg?branch=master)](http://codecov.io/github/ethereum/go-ethereum?branch=master)
 
-The LF has setup an incubator org for various proposals and prototyping efforts. The incubator GitHub org is available at [https://github.com/orgs/hyperledger-incubator](https://github.com/orgs/hyperledger-incubator)
+[![API Reference](
+https://camo.githubusercontent.com/915b7be44ada53c290eb157634330494ebe3e30a/68747470733a2f2f676f646f632e6f72672f6769746875622e636f6d2f676f6c616e672f6764646f3f7374617475732e737667
+)](https://godoc.org/github.com/ethereum/go-ethereum) 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ethereum/go-ethereum?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-## Ripple Proposed Contribution
+## Automated development builds
 
-Rippled is an open source, actively maintained, C++ implementation of a public, distributed ledger. The Ripple network has been operational as a public network since 2012, providing cross-currency atomic payments. Rippled includes a high-performance group of core classes for resistance to algorithmic complexity attacks, resource management and binary representations of ledgers and transactions. Because Ripple's use case includes complex, cross-currency payments using order books, there is significant infrastructure to simplify the development of transactors that implement complex semantics.
+The following builds are build automatically by our build servers after each push to the [develop](https://github.com/ethereum/go-ethereum/tree/develop) branch.
 
-[https://github.com/ripple/rippled](https://github.com/ripple/rippled)
+* [Docker](https://registry.hub.docker.com/u/ethereum/client-go/)
+* [OS X](http://build.ethdev.com/builds/OSX%20Go%20develop%20branch/Mist-OSX-latest.dmg)
+* Ubuntu
+  [trusty](https://build.ethdev.com/builds/Linux%20Go%20develop%20deb%20i386-trusty/latest/) |
+  [utopic](https://build.ethdev.com/builds/Linux%20Go%20develop%20deb%20i386-utopic/latest/)
+* [Windows 64-bit](https://build.ethdev.com/builds/Windows%20Go%20develop%20branch/Geth-Win64-latest.zip)
+* [ARM](https://build.ethdev.com/builds/ARM%20Go%20develop%20branch/geth-ARM-latest.tar.bz2)
 
-Rippled includes NuDB, a high-performance, scalable key/value store specifically designed for distributed ledger applications. NuDB is optimized for handling data sets of many terabytes with minimal RAM consumption. It requires a high-performance I/O back-end, such as an SSD.
+## Building the source
 
-[https://github.com/ripple/rippled/tree/develop/src/beast/beast/nudb](https://github.com/ripple/rippled/tree/develop/src/beast/beast/nudb)
+For prerequisites and detailed build instructions please read the
+[Installation Instructions](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum)
+on the wiki.
 
-## IBM Proposed Contribution
+Building geth requires both a Go and a C compiler.
+You can install them using your favourite package manager.
+Once the dependencies are installed, run
 
-Open Blockchain (OBC) is IBM's proposed contribution to the Hyperledger project. It is a low level blockchain fabric that has been designed to meet the requirements of a variety of industry-focused use cases. It extends the learning of the pioneers in this field by addressing additional requirements needed to satisfy those broader industry use cases. The central elements of this implementation are smart contracts (what IBM calls chain code), digital assets, record repositories, a decentralized network providing consensus, and cryptographic security. To these blockchain staples, the implementation supports key industry requirements such as performance, verified identities, private and confidential transactions. Finally, the fabric is architected to provide for a pluggable consensus model, allowing a variety of specialized or optimized consensus algorithms to be applied.
+    make geth
 
-[https://github.com/openblockchain](https://github.com/openblockchain)
+## Executables
 
-## Digital Asset Holdings Proposed Contribution
+Go Ethereum comes with several wrappers/executables found in 
+[the `cmd` directory](https://github.com/ethereum/go-ethereum/tree/develop/cmd):
 
-Digital Asset's Hyperledger candidate contribution is an enterprise ready blockchain server with a client API. HLP-Candidate has a modular architecture and configurable network architecture particularly designed to meet the needs of our financial services clients. HLP-Candidate implements an append-only log of financial transactions designed to be replicated at multiple organizations without centralized control. The goal of HLP-Candidate is to allow expansion of the data backbone concept to the multi-organization level. We are open sourcing this project with the belief that as a critical part of the new financial infrastructure, this part of the software stack should be commoditized, collaborated on and serve as the robust backbone on which applications can be developed.
+ Command  |         |
+----------|---------|
+`geth` | Ethereum CLI (ethereum command line interface client) |
+`bootnode` | runs a bootstrap node for the Discovery Protocol |
+`ethtest` | test tool which runs with the [tests](https://github.com/ethereum/tests) suite: `/path/to/test.json > ethtest --test BlockTests --stdin`.
+`evm` | is a generic Ethereum Virtual Machine: `evm -code 60ff60ff -gas 10000 -price 0 -dump`. See `-h` for a detailed description. |
+`disasm` | disassembles EVM code: `echo "6001" | disasm` |
+`rlpdump` | prints RLP structures |
 
-[https://github.com/DigitalAssetCom/hlp-candidate](https://github.com/DigitalAssetCom/hlp-candidate)
+## Command line options
 
-## Blockstream Proposed Contribution
+`geth` can be configured via command line options, environment variables and config files.
 
-Blockstream is contributing [the Elements Project](https://elementsproject.org), a modularized fork of the Bitcoin codebase that adds several major improvements called "Elements".  Elements are composable features that allow a blockchain's attributes to be customized, including [Confidential Transactions](https://elementsproject.org/elements/confidential-transactions), [Segregated Witness](https://elementsproject.org/elements/segregated-witness), and [Deterministic Pegs](https://elementsproject.org/elements/deterministic-pegs).  Sidechains are interoperable blockchains implementing atomic, cross-chain transactions using a choice of federated, permissioned, or decentralized consensus models.  This model allows HyperLedger to interoperate with the existing developer community – sharing progress on testing, scalability, and features – by allowing anyone in the world to utilize shared infrastructure to solve domain-specific problems on purpose-built sidechains.
+To get the options available:
 
-[https://github.com/ElementsProject/elements](https://github.com/ElementsProject/elements)
+    geth help
+
+For further details on options, see the [wiki](https://github.com/ethereum/go-ethereum/wiki/Command-Line-Options)
+
+## Contribution
+
+If you'd like to contribute to go-ethereum please fork, fix, commit and
+send a pull request. Commits who do not comply with the coding standards
+are ignored (use gofmt!). If you send pull requests make absolute sure that you
+commit on the `develop` branch and that you do not merge to master.
+Commits that are directly based on master are simply ignored.
+
+See [Developers' Guide](https://github.com/ethereum/go-ethereum/wiki/Developers'-Guide)
+for more details on configuring your environment, testing, and
+dependency management.
