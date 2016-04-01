@@ -1,0 +1,550 @@
+!<arch>
+__.PKGDEF       0           0     0     644     80621     `
+go object darwin amd64 go1.5 X:none
+build id "077333a64ffe9fbdc7b9b45246889d5ea17c486d"
+
+$$
+package pow
+	import runtime "runtime"
+	import big "math/big"
+	import common "github.com/ethereum/go-ethereum/common"
+	import types "github.com/ethereum/go-ethereum/core/types"
+	type @"math/big".Word uintptr
+	type @"math/big".divisor struct { @"math/big".bbb @"math/big".nat; @"math/big".nbits int; @"math/big".ndigits int }
+	import rand "math/rand" // indirect
+	type @"math/rand".Source interface { Int63() (? int64); Seed(@"math/rand".seed int64) }
+	type @"math/rand".Rand struct { @"math/rand".src @"math/rand".Source }
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") ExpFloat64 () (? float64)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Float32 () (? float32)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Float64 () (? float64)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Int () (? int)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Int31 () (? int32)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Int31n (@"math/rand".nÂ·3 int32) (? int32)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Int63 () (? int64)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Int63n (@"math/rand".nÂ·3 int64) (? int64)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Intn (@"math/rand".nÂ·3 int) (? int)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") NormFloat64 () (? float64)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Perm (@"math/rand".nÂ·3 int) (? []int)
+	func (@"math/rand".rÂ·1 *@"math/rand".Rand "esc:0x9") Seed (@"math/rand".seedÂ·2 int64)
+	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Uint32 () (? uint32)
+	import io "io" // indirect
+	type @"io".ByteScanner interface { ReadByte() (@"io".c byte, @"io".err error); UnreadByte() (? error) }
+	type @"math/big".nat []@"math/big".Word
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".add (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".and (@"math/big".xÂ·3 @"math/big".nat "esc:0x1", @"math/big".yÂ·4 @"math/big".nat "esc:0x1") (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".andNot (@"math/big".xÂ·3 @"math/big".nat "esc:0x9", @"math/big".yÂ·4 @"math/big".nat "esc:0x1") (? @"math/big".nat)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".bit (@"math/big".iÂ·3 uint) (? uint) { var @"math/big".jÂ·4 uint; ; @"math/big".jÂ·4 = @"math/big".iÂ·3 / 0x40; if @"math/big".jÂ·4 >= uint(len(@"math/big".xÂ·2)) { return 0x0 }; return uint(@"math/big".xÂ·2[@"math/big".jÂ·4] >> (@"math/big".iÂ·3 % 0x40) & @"math/big".Word(0x1)) }
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".bitLen () (? int)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x1") @"math/big".bytes (@"math/big".bufÂ·3 []byte "esc:0x1") (@"math/big".iÂ·1 int)
+	func (@"math/big".zÂ·1 @"math/big".nat "esc:0x1") @"math/big".clear ()
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".cmp (@"math/big".yÂ·3 @"math/big".nat "esc:0x1") (@"math/big".rÂ·1 int)
+	func (@"math/big".qÂ·1 @"math/big".nat) @"math/big".convertWords (@"math/big".sÂ·2 []byte "esc:0x1", @"math/big".charsetÂ·3 string "esc:0x1", @"math/big".bÂ·4 @"math/big".Word, @"math/big".ndigitsÂ·5 int, @"math/big".bbÂ·6 @"math/big".Word, @"math/big".tableÂ·7 []@"math/big".divisor "esc:0x9")
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".decimalString () (? string)
+	func (@"math/big".zÂ·3 @"math/big".nat) @"math/big".div (@"math/big".z2Â·4 @"math/big".nat, @"math/big".uÂ·5 @"math/big".nat, @"math/big".vÂ·6 @"math/big".nat) (@"math/big".qÂ·1 @"math/big".nat, @"math/big".rÂ·2 @"math/big".nat)
+	func (@"math/big".zÂ·3 @"math/big".nat "esc:0x12") @"math/big".divLarge (@"math/big".uÂ·4 @"math/big".nat, @"math/big".uInÂ·5 @"math/big".nat, @"math/big".vÂ·6 @"math/big".nat) (@"math/big".qÂ·1 @"math/big".nat, @"math/big".rÂ·2 @"math/big".nat)
+	func (@"math/big".zÂ·3 @"math/big".nat) @"math/big".divW (@"math/big".xÂ·4 @"math/big".nat, @"math/big".yÂ·5 @"math/big".Word) (@"math/big".qÂ·1 @"math/big".nat, @"math/big".rÂ·2 @"math/big".Word)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expNN (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expNNMontgomery (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expNNWindowed (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expWW (@"math/big".xÂ·3 @"math/big".Word, @"math/big".yÂ·4 @"math/big".Word) (? @"math/big".nat)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".hexString () (? string)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".make (@"math/big".nÂ·3 int) (? @"math/big".nat)
+	func (@"math/big".xÂ·2 @"math/big".nat) @"math/big".modW (@"math/big".dÂ·3 @"math/big".Word) (@"math/big".rÂ·1 @"math/big".Word)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".montgomery (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat, @"math/big".kÂ·6 @"math/big".Word, @"math/big".nÂ·7 int) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".mul (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".mulAddWW (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".Word, @"math/big".rÂ·5 @"math/big".Word) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".mulRange (@"math/big".aÂ·3 uint64, @"math/big".bÂ·4 uint64) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".norm () (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".or (@"math/big".xÂ·3 @"math/big".nat "esc:0x9", @"math/big".yÂ·4 @"math/big".nat "esc:0x9") (? @"math/big".nat)
+	func (@"math/big".nÂ·2 @"math/big".nat) @"math/big".probablyPrime (@"math/big".repsÂ·3 int) (? bool)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".random (@"math/big".randÂ·3 *@"math/rand".Rand "esc:0x9", @"math/big".limitÂ·4 @"math/big".nat "esc:0x1", @"math/big".nÂ·5 int) (? @"math/big".nat)
+	func (@"math/big".zÂ·5 @"math/big".nat) @"math/big".scan (@"math/big".rÂ·6 @"io".ByteScanner, @"math/big".baseÂ·7 int, @"math/big".fracOkÂ·8 bool) (@"math/big".resÂ·1 @"math/big".nat, @"math/big".bÂ·2 int, @"math/big".countÂ·3 int, @"math/big".errÂ·4 error)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".set (@"math/big".xÂ·3 @"math/big".nat "esc:0x9") (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".setBit (@"math/big".xÂ·3 @"math/big".nat "esc:0x9", @"math/big".iÂ·4 uint, @"math/big".bÂ·5 uint) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".setBytes (@"math/big".bufÂ·3 []byte "esc:0x1") (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".setUint64 (@"math/big".xÂ·3 uint64) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".setWord (@"math/big".xÂ·3 @"math/big".Word) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".shl (@"math/big".xÂ·3 @"math/big".nat, @"math/big".sÂ·4 uint) (? @"math/big".nat)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".shr (@"math/big".xÂ·3 @"math/big".nat, @"math/big".sÂ·4 uint) (? @"math/big".nat)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".sticky (@"math/big".iÂ·3 uint) (? uint)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".string (@"math/big".charsetÂ·3 string "esc:0x1") (? string)
+	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".sub (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat) (? @"math/big".nat)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".trailingZeroBits () (? uint)
+	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".xor (@"math/big".xÂ·3 @"math/big".nat "esc:0x9", @"math/big".yÂ·4 @"math/big".nat "esc:0x9") (? @"math/big".nat)
+	import fmt "fmt" // indirect
+	type @"fmt".State interface { Flag(@"fmt".c int) (? bool); Precision() (@"fmt".prec int, @"fmt".ok bool); Width() (@"fmt".wid int, @"fmt".ok bool); Write(@"fmt".b []byte) (@"fmt".ret int, @"fmt".err error) }
+	type @"fmt".ScanState interface { Read(@"fmt".buf []byte) (@"fmt".n int, @"fmt".err error); ReadRune() (@"fmt".r rune, @"fmt".size int, @"fmt".err error); SkipSpace(); Token(@"fmt".skipSpace bool, @"fmt".f func(? rune) (? bool)) (@"fmt".token []byte, @"fmt".err error); UnreadRune() (? error); Width() (@"fmt".wid int, @"fmt".ok bool) }
+	type @"math/big".Int struct { @"math/big".neg bool; @"math/big".abs @"math/big".nat }
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Abs (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Add (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") And (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") AndNot (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Binomial (@"math/big".nÂ·3 int64, @"math/big".kÂ·4 int64) (? *@"math/big".Int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") Bit (@"math/big".iÂ·3 int) (? uint)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") BitLen () (? int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x22") Bits () (? []@"math/big".Word) { return @"math/big".xÂ·2.@"math/big".abs }
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Bytes () (? []byte)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Cmp (@"math/big".yÂ·3 *@"math/big".Int "esc:0x1") (@"math/big".rÂ·1 int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Div (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x1a") DivMod (@"math/big".xÂ·4 *@"math/big".Int "esc:0x9", @"math/big".yÂ·5 *@"math/big".Int "esc:0x9", @"math/big".mÂ·6 *@"math/big".Int "esc:0x8a") (? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Exp (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x1", @"math/big".mÂ·5 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".xÂ·1 *@"math/big".Int "esc:0x9") Format (@"math/big".sÂ·2 @"fmt".State, @"math/big".chÂ·3 rune)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") GCD (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9", @"math/big".aÂ·5 *@"math/big".Int "esc:0x9", @"math/big".bÂ·6 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x9") GobDecode (@"math/big".bufÂ·3 []byte "esc:0x1") (? error)
+	func (@"math/big".xÂ·3 *@"math/big".Int "esc:0x1") GobEncode () (? []byte, ? error)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Int64 () (? int64) { var @"math/big".vÂ·3 int64; ; @"math/big".vÂ·3 = int64(@"math/big".low64(@"math/big".xÂ·2.@"math/big".abs)); if @"math/big".xÂ·2.@"math/big".neg { @"math/big".vÂ·3 = -@"math/big".vÂ·3 }; return @"math/big".vÂ·3 }
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Lsh (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".nÂ·4 uint) (? *@"math/big".Int)
+	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x9") MarshalJSON () (? []byte, ? error)
+	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x9") MarshalText () (@"math/big".textÂ·1 []byte, @"math/big".errÂ·2 error)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Mod (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") ModInverse (@"math/big".gÂ·3 *@"math/big".Int "esc:0x9", @"math/big".nÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") ModSqrt (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".pÂ·4 *@"math/big".Int) (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Mul (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") MulRange (@"math/big".aÂ·3 int64, @"math/big".bÂ·4 int64) (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Neg (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Not (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Or (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") ProbablyPrime (@"math/big".nÂ·3 int) (? bool)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Quo (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x1a") QuoRem (@"math/big".xÂ·4 *@"math/big".Int "esc:0x9", @"math/big".yÂ·5 *@"math/big".Int "esc:0x9", @"math/big".rÂ·6 *@"math/big".Int "esc:0x8a") (? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Rand (@"math/big".rndÂ·3 *@"math/rand".Rand "esc:0x9", @"math/big".nÂ·4 *@"math/big".Int "esc:0x1") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Rem (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Rsh (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".nÂ·4 uint) (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x9") Scan (@"math/big".sÂ·3 @"fmt".ScanState, @"math/big".chÂ·4 rune) (? error)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Set (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") SetBit (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".iÂ·4 int, @"math/big".bÂ·5 uint) (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x12") SetBits (@"math/big".absÂ·3 []@"math/big".Word) (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") SetBytes (@"math/big".bufÂ·3 []byte "esc:0x1") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") SetInt64 (@"math/big".xÂ·3 int64) (? *@"math/big".Int)
+	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x1a") SetString (@"math/big".sÂ·4 string, @"math/big".baseÂ·5 int) (? *@"math/big".Int, ? bool)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") SetUint64 (@"math/big".xÂ·3 uint64) (? *@"math/big".Int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Sign () (? int) { if len(@"math/big".xÂ·2.@"math/big".abs) == 0x0 { return 0x0 }; if @"math/big".xÂ·2.@"math/big".neg { return -0x1 }; return 0x1 }
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") String () (? string)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Sub (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Uint64 () (? uint64) { return @"math/big".low64(@"math/big".xÂ·2.@"math/big".abs) }
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x9") UnmarshalJSON (@"math/big".textÂ·3 []byte) (? error)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x9") UnmarshalText (@"math/big".textÂ·3 []byte) (? error)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Xor (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") @"math/big".binaryGCD (@"math/big".aÂ·3 *@"math/big".Int "esc:0x9", @"math/big".bÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·4 *@"math/big".Int "esc:0x1a") @"math/big".scan (@"math/big".rÂ·5 @"io".ByteScanner, @"math/big".baseÂ·6 int) (? *@"math/big".Int, ? int, ? error)
+	import reflect "reflect" // indirect
+	type @"reflect".typeAlg struct { @"reflect".hash func(? @"unsafe".Pointer, ? uintptr) (? uintptr); @"reflect".equal func(? @"unsafe".Pointer, ? @"unsafe".Pointer) (? bool) }
+	type @"reflect".method struct { @"reflect".name *string; @"reflect".pkgPath *string; @"reflect".mtyp *@"reflect".rtype; @"reflect".typ *@"reflect".rtype; @"reflect".ifn @"unsafe".Pointer; @"reflect".tfn @"unsafe".Pointer }
+	type @"reflect".ChanDir int
+	func (@"reflect".dÂ·2 @"reflect".ChanDir) String () (? string)
+	type @"reflect".StructTag string
+	func (@"reflect".tagÂ·2 @"reflect".StructTag "esc:0x12") Get (@"reflect".keyÂ·3 string "esc:0x1") (? string)
+	type @"reflect".StructField struct { Name string; PkgPath string; Type @"reflect".Type; Tag @"reflect".StructTag; Offset uintptr; Index []int; Anonymous bool }
+	type @"reflect".Kind uint
+	func (@"reflect".kÂ·2 @"reflect".Kind) String () (? string)
+	type @"reflect".Type interface { Align() (? int); AssignableTo(@"reflect".u @"reflect".Type) (? bool); Bits() (? int); ChanDir() (? @"reflect".ChanDir); Comparable() (? bool); ConvertibleTo(@"reflect".u @"reflect".Type) (? bool); Elem() (? @"reflect".Type); Field(@"reflect".i int) (? @"reflect".StructField); FieldAlign() (? int); FieldByIndex(@"reflect".index []int) (? @"reflect".StructField); FieldByName(@"reflect".name string) (? @"reflect".StructField, ? bool); FieldByNameFunc(@"reflect".match func(? string) (? bool)) (? @"reflect".StructField, ? bool); Implements(@"reflect".u @"reflect".Type) (? bool); In(@"reflect".i int) (? @"reflect".Type); IsVariadic() (? bool); Key() (? @"reflect".Type); Kind() (? @"reflect".Kind); Len() (? int); Method(? int) (? @"reflect".Method); MethodByName(? string) (? @"reflect".Method, ? bool); Name() (? string); NumField() (? int); NumIn() (? int); NumMethod() (? int); NumOut() (? int); Out(@"reflect".i int) (? @"reflect".Type); PkgPath() (? string); Size() (? uintptr); String() (? string); @"reflect".common() (? *@"reflect".rtype); @"reflect".uncommon() (? *@"reflect".uncommonType) }
+	type @"reflect".Method struct { Name string; PkgPath string; Type @"reflect".Type; Func @"reflect".Value; Index int }
+	type @"reflect".uncommonType struct { @"reflect".name *string; @"reflect".pkgPath *string; @"reflect".methods []@"reflect".method }
+	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x22") Method (@"reflect".iÂ·3 int) (@"reflect".mÂ·1 @"reflect".Method)
+	func (@"reflect".tÂ·3 *@"reflect".uncommonType "esc:0x22") MethodByName (@"reflect".nameÂ·4 string "esc:0x1") (@"reflect".mÂ·1 @"reflect".Method, @"reflect".okÂ·2 bool)
+	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x32") Name () (? string) { if @"reflect".tÂ·2 == nil || @"reflect".tÂ·2.@"reflect".name == nil { return "" }; return *@"reflect".tÂ·2.@"reflect".name }
+	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x1") NumMethod () (? int) { if @"reflect".tÂ·2 == nil { return 0x0 }; return len(@"reflect".tÂ·2.@"reflect".methods) }
+	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x32") PkgPath () (? string) { if @"reflect".tÂ·2 == nil || @"reflect".tÂ·2.@"reflect".pkgPath == nil { return "" }; return *@"reflect".tÂ·2.@"reflect".pkgPath }
+	func (@"reflect".tÂ·2 *@"reflect".uncommonType "esc:0x12") @"reflect".uncommon () (? *@"reflect".uncommonType) { return @"reflect".tÂ·2 }
+	type @"reflect".rtype struct { @"reflect".size uintptr; @"reflect".ptrdata uintptr; @"reflect".hash uint32; _ uint8; @"reflect".align uint8; @"reflect".fieldAlign uint8; @"reflect".kind uint8; @"reflect".alg *@"reflect".typeAlg; @"reflect".gcdata *byte; @"reflect".string *string; @"reflect".? *@"reflect".uncommonType; @"reflect".ptrToThis *@"reflect".rtype; @"reflect".zero @"unsafe".Pointer }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Align () (? int) { return int(@"reflect".tÂ·2.@"reflect".align) }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") AssignableTo (@"reflect".uÂ·3 @"reflect".Type "esc:0x1") (? bool)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Bits () (? int)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") ChanDir () (? @"reflect".ChanDir)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Comparable () (? bool) { return @"reflect".tÂ·2.@"reflect".alg != nil && @"reflect".tÂ·2.@"reflect".alg.@"reflect".equal != nil }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x9") ConvertibleTo (@"reflect".uÂ·3 @"reflect".Type "esc:0x9") (? bool)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x22") Elem () (? @"reflect".Type)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x3a") Field (@"reflect".iÂ·3 int) (? @"reflect".StructField)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") FieldAlign () (? int) { return int(@"reflect".tÂ·2.@"reflect".fieldAlign) }
+	func (@"reflect".tÂ·2 *@"reflect".rtype) FieldByIndex (@"reflect".indexÂ·3 []int "esc:0x1") (? @"reflect".StructField)
+	func (@"reflect".tÂ·3 *@"reflect".rtype) FieldByName (@"reflect".nameÂ·4 string "esc:0x1") (? @"reflect".StructField, ? bool)
+	func (@"reflect".tÂ·3 *@"reflect".rtype) FieldByNameFunc (@"reflect".matchÂ·4 func(? string) (? bool) "esc:0x1") (? @"reflect".StructField, ? bool)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Implements (@"reflect".uÂ·3 @"reflect".Type) (? bool)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x32") In (@"reflect".iÂ·3 int) (? @"reflect".Type)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") IsVariadic () (? bool)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x22") Key () (? @"reflect".Type)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Kind () (? @"reflect".Kind) { return @"reflect".Kind(@"reflect".tÂ·2.@"reflect".kind & 0x1f) }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Len () (? int)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x32") Method (@"reflect".iÂ·3 int) (@"reflect".mÂ·1 @"reflect".Method)
+	func (@"reflect".tÂ·3 *@"reflect".rtype "esc:0x32") MethodByName (@"reflect".nameÂ·4 string "esc:0x1") (@"reflect".mÂ·1 @"reflect".Method, @"reflect".okÂ·2 bool)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x42") Name () (? string) { return @"reflect".tÂ·2.@"reflect".uncommonType.Name() }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") NumField () (? int)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") NumIn () (? int)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") NumMethod () (? int) { if @"reflect".tÂ·2.Kind() == @"reflect".Kind(0x14) { var @"reflect".ttÂ·3 *@"reflect".interfaceType; ; @"reflect".ttÂ·3 = (*@"reflect".interfaceType)(@"unsafe".Pointer(@"reflect".tÂ·2)); return @"reflect".ttÂ·3.NumMethod() }; return @"reflect".tÂ·2.@"reflect".uncommonType.NumMethod() }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") NumOut () (? int)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x32") Out (@"reflect".iÂ·3 int) (? @"reflect".Type)
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x42") PkgPath () (? string) { return @"reflect".tÂ·2.@"reflect".uncommonType.PkgPath() }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") Size () (? uintptr) { return @"reflect".tÂ·2.@"reflect".size }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x32") String () (? string) { return *@"reflect".tÂ·2.@"reflect".string }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x12") @"reflect".common () (? *@"reflect".rtype) { return @"reflect".tÂ·2 }
+	func (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x1") @"reflect".pointers () (? bool) { return @"reflect".tÂ·2.@"reflect".kind & 0x80 == 0x0 }
+	func (@"reflect".tÂ·2 *@"reflect".rtype) @"reflect".ptrTo () (? *@"reflect".rtype)
+	type @"reflect".flag uintptr
+	func (@"reflect".fÂ·2 @"reflect".flag) @"reflect".kind () (? @"reflect".Kind) { return @"reflect".Kind(@"reflect".fÂ·2 & @"reflect".flag(0x1f)) }
+	func (@"reflect".fÂ·1 @"reflect".flag) @"reflect".mustBe (@"reflect".expectedÂ·2 @"reflect".Kind)
+	func (@"reflect".fÂ·1 @"reflect".flag) @"reflect".mustBeAssignable ()
+	func (@"reflect".fÂ·1 @"reflect".flag) @"reflect".mustBeExported ()
+	type @"reflect".Value struct { @"reflect".typ *@"reflect".rtype; @"reflect".ptr @"unsafe".Pointer; @"reflect".? @"reflect".flag }
+	func (@"reflect".vÂ·2 @"reflect".Value) Addr () (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Bool () (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2a") Bytes () (? []byte)
+	func (@"reflect".vÂ·2 @"reflect".Value) Call (@"reflect".inÂ·3 []@"reflect".Value "esc:0x9") (? []@"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value) CallSlice (@"reflect".inÂ·3 []@"reflect".Value "esc:0x9") (? []@"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") CanAddr () (? bool) { return @"reflect".vÂ·2.@"reflect".flag & @"reflect".flag(0x80) != @"reflect".flag(0x0) }
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") CanInterface () (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") CanSet () (? bool) { return @"reflect".vÂ·2.@"reflect".flag & @"reflect".flag(0xa0) == @"reflect".flag(0x80) }
+	func (@"reflect".vÂ·2 @"reflect".Value) Cap () (? int)
+	func (@"reflect".vÂ·1 @"reflect".Value) Close ()
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Complex () (? complex128)
+	func (@"reflect".vÂ·2 @"reflect".Value) Convert (@"reflect".tÂ·3 @"reflect".Type) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") Elem () (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") Field (@"reflect".iÂ·3 int) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1a") FieldByIndex (@"reflect".indexÂ·3 []int "esc:0x1") (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value) FieldByName (@"reflect".nameÂ·3 string "esc:0x1") (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value) FieldByNameFunc (@"reflect".matchÂ·3 func(? string) (? bool) "esc:0x1") (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Float () (? float64)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") Index (@"reflect".iÂ·3 int) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Int () (? int64)
+	func (@"reflect".vÂ·2 @"reflect".Value) Interface () (@"reflect".iÂ·1 interface {})
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") InterfaceData () (? [2]uintptr)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") IsNil () (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") IsValid () (? bool) { return @"reflect".vÂ·2.@"reflect".flag != @"reflect".flag(0x0) }
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Kind () (? @"reflect".Kind) { return @"reflect".vÂ·2.@"reflect".flag.@"reflect".kind() }
+	func (@"reflect".vÂ·2 @"reflect".Value) Len () (? int)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2a") MapIndex (@"reflect".keyÂ·3 @"reflect".Value) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x9") MapKeys () (? []@"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") Method (@"reflect".iÂ·3 int) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") MethodByName (@"reflect".nameÂ·3 string "esc:0x1") (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") NumField () (? int)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") NumMethod () (? int)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") OverflowComplex (@"reflect".xÂ·3 complex128) (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") OverflowFloat (@"reflect".xÂ·3 float64) (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") OverflowInt (@"reflect".xÂ·3 int64) (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") OverflowUint (@"reflect".xÂ·3 uint64) (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") Pointer () (? uintptr)
+	func (@"reflect".vÂ·3 @"reflect".Value) Recv () (@"reflect".xÂ·1 @"reflect".Value, @"reflect".okÂ·2 bool)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x9") Send (@"reflect".xÂ·2 @"reflect".Value)
+	func (@"reflect".vÂ·1 @"reflect".Value) Set (@"reflect".xÂ·2 @"reflect".Value)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetBool (@"reflect".xÂ·2 bool)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x9") SetBytes (@"reflect".xÂ·2 []byte)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetCap (@"reflect".nÂ·2 int)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetComplex (@"reflect".xÂ·2 complex128)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetFloat (@"reflect".xÂ·2 float64)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetInt (@"reflect".xÂ·2 int64)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetLen (@"reflect".nÂ·2 int)
+	func (@"reflect".vÂ·1 @"reflect".Value) SetMapIndex (@"reflect".keyÂ·2 @"reflect".Value, @"reflect".valÂ·3 @"reflect".Value)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetPointer (@"reflect".xÂ·2 @"unsafe".Pointer)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetString (@"reflect".xÂ·2 string)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x1") SetUint (@"reflect".xÂ·2 uint64)
+	func (@"reflect".vÂ·2 @"reflect".Value) Slice (@"reflect".iÂ·3 int, @"reflect".jÂ·4 int) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value) Slice3 (@"reflect".iÂ·3 int, @"reflect".jÂ·4 int, @"reflect".kÂ·5 int) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value) String () (? string)
+	func (@"reflect".vÂ·3 @"reflect".Value) TryRecv () (@"reflect".xÂ·1 @"reflect".Value, @"reflect".okÂ·2 bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x9") TrySend (@"reflect".xÂ·3 @"reflect".Value) (? bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") Type () (? @"reflect".Type)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x1") Uint () (? uint64)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") UnsafeAddr () (? uintptr)
+	func (@"reflect".vÂ·2 @"reflect".Value) @"reflect".assignTo (@"reflect".contextÂ·3 string "esc:0x1", @"reflect".dstÂ·4 *@"reflect".rtype, @"reflect".targetÂ·5 @"unsafe".Pointer) (? @"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value) @"reflect".call (@"reflect".opÂ·3 string "esc:0x1", @"reflect".inÂ·4 []@"reflect".Value "esc:0x9") (? []@"reflect".Value)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x12") @"reflect".pointer () (? @"unsafe".Pointer)
+	func (@"reflect".vÂ·3 @"reflect".Value) @"reflect".recv (@"reflect".nbÂ·4 bool) (@"reflect".valÂ·1 @"reflect".Value, @"reflect".okÂ·2 bool)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x2a") @"reflect".runes () (? []rune)
+	func (@"reflect".vÂ·2 @"reflect".Value "esc:0x9") @"reflect".send (@"reflect".xÂ·3 @"reflect".Value, @"reflect".nbÂ·4 bool) (@"reflect".selectedÂ·1 bool)
+	func (@"reflect".vÂ·1 @"reflect".Value "esc:0x9") @"reflect".setRunes (@"reflect".xÂ·2 []rune)
+	type @"github.com/ethereum/go-ethereum/common".Hash [32]byte
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·2 @"github.com/ethereum/go-ethereum/common".Hash) Big () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·2 @"github.com/ethereum/go-ethereum/common".Hash) Bytes () (? []byte) { return @"github.com/ethereum/go-ethereum/common".hÂ·2[:] }
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·2 @"github.com/ethereum/go-ethereum/common".Hash) Generate (@"github.com/ethereum/go-ethereum/common".randÂ·3 *@"math/rand".Rand "esc:0x9", @"github.com/ethereum/go-ethereum/common".sizeÂ·4 int) (? @"reflect".Value)
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·2 @"github.com/ethereum/go-ethereum/common".Hash) Hex () (? string)
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·1 *@"github.com/ethereum/go-ethereum/common".Hash "esc:0x1") Set (@"github.com/ethereum/go-ethereum/common".otherÂ·2 @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·1 *@"github.com/ethereum/go-ethereum/common".Hash "esc:0x1") SetBytes (@"github.com/ethereum/go-ethereum/common".bÂ·2 []byte "esc:0x9") { if len(@"github.com/ethereum/go-ethereum/common".bÂ·2) > 0x20 { @"github.com/ethereum/go-ethereum/common".bÂ·2 = @"github.com/ethereum/go-ethereum/common".bÂ·2[len(@"github.com/ethereum/go-ethereum/common".bÂ·2) - 0x20:] }; copy(@"github.com/ethereum/go-ethereum/common".hÂ·1[0x20 - len(@"github.com/ethereum/go-ethereum/common".bÂ·2):], @"github.com/ethereum/go-ethereum/common".bÂ·2) }
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·1 *@"github.com/ethereum/go-ethereum/common".Hash "esc:0x1") SetString (@"github.com/ethereum/go-ethereum/common".sÂ·2 string "esc:0x1") { @"github.com/ethereum/go-ethereum/common".hÂ·1.SetBytes(([]byte)(@"github.com/ethereum/go-ethereum/common".sÂ·2)) }
+	func (@"github.com/ethereum/go-ethereum/common".hÂ·2 @"github.com/ethereum/go-ethereum/common".Hash) Str () (? string) { return string(@"github.com/ethereum/go-ethereum/common".hÂ·2[:]) }
+	type @"".Block interface { Difficulty() (? *@"math/big".Int); HashNoNonce() (? @"github.com/ethereum/go-ethereum/common".Hash); MixDigest() (? @"github.com/ethereum/go-ethereum/common".Hash); Nonce() (? uint64); NumberU64() (? uint64) }
+	type @"github.com/ethereum/go-ethereum/common".Address [20]byte
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·2 @"github.com/ethereum/go-ethereum/common".Address) Big () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·2 @"github.com/ethereum/go-ethereum/common".Address) Bytes () (? []byte) { return @"github.com/ethereum/go-ethereum/common".aÂ·2[:] }
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·2 @"github.com/ethereum/go-ethereum/common".Address) Hash () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/common".BytesToHash(@"github.com/ethereum/go-ethereum/common".aÂ·2[:]) }
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·2 @"github.com/ethereum/go-ethereum/common".Address) Hex () (? string)
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·1 *@"github.com/ethereum/go-ethereum/common".Address "esc:0x1") Set (@"github.com/ethereum/go-ethereum/common".otherÂ·2 @"github.com/ethereum/go-ethereum/common".Address)
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·1 *@"github.com/ethereum/go-ethereum/common".Address "esc:0x1") SetBytes (@"github.com/ethereum/go-ethereum/common".bÂ·2 []byte "esc:0x9") { if len(@"github.com/ethereum/go-ethereum/common".bÂ·2) > 0x14 { @"github.com/ethereum/go-ethereum/common".bÂ·2 = @"github.com/ethereum/go-ethereum/common".bÂ·2[len(@"github.com/ethereum/go-ethereum/common".bÂ·2) - 0x14:] }; copy(@"github.com/ethereum/go-ethereum/common".aÂ·1[0x14 - len(@"github.com/ethereum/go-ethereum/common".bÂ·2):], @"github.com/ethereum/go-ethereum/common".bÂ·2) }
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·1 *@"github.com/ethereum/go-ethereum/common".Address "esc:0x1") SetString (@"github.com/ethereum/go-ethereum/common".sÂ·2 string "esc:0x1") { @"github.com/ethereum/go-ethereum/common".aÂ·1.SetBytes(([]byte)(@"github.com/ethereum/go-ethereum/common".sÂ·2)) }
+	func (@"github.com/ethereum/go-ethereum/common".aÂ·2 @"github.com/ethereum/go-ethereum/common".Address) Str () (? string) { return string(@"github.com/ethereum/go-ethereum/common".aÂ·2[:]) }
+	type @"github.com/ethereum/go-ethereum/core/types".Bloom [256]byte
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·1 *@"github.com/ethereum/go-ethereum/core/types".Bloom "esc:0x1") Add (@"github.com/ethereum/go-ethereum/core/types".dÂ·2 *@"math/big".Int "esc:0x1")
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 @"github.com/ethereum/go-ethereum/core/types".Bloom) Big () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 @"github.com/ethereum/go-ethereum/core/types".Bloom) Bytes () (? []byte) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2[:] }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·1 *@"github.com/ethereum/go-ethereum/core/types".Bloom "esc:0x1") SetBytes (@"github.com/ethereum/go-ethereum/core/types".dÂ·2 []byte "esc:0x9")
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 @"github.com/ethereum/go-ethereum/core/types".Bloom) Test (@"github.com/ethereum/go-ethereum/core/types".testÂ·3 *@"math/big".Int) (? bool)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 @"github.com/ethereum/go-ethereum/core/types".Bloom) TestBytes (@"github.com/ethereum/go-ethereum/core/types".testÂ·3 []byte "esc:0x1") (? bool)
+	type @"github.com/ethereum/go-ethereum/core/types".BlockNonce [8]byte
+	func (@"github.com/ethereum/go-ethereum/core/types".nÂ·2 @"github.com/ethereum/go-ethereum/core/types".BlockNonce) Uint64 () (? uint64) { return @"encoding/binary".BigEndian.Uint64(@"github.com/ethereum/go-ethereum/core/types".nÂ·2[:]) }
+	type @"github.com/ethereum/go-ethereum/core/types".Header struct { ParentHash @"github.com/ethereum/go-ethereum/common".Hash; UncleHash @"github.com/ethereum/go-ethereum/common".Hash; Coinbase @"github.com/ethereum/go-ethereum/common".Address; Root @"github.com/ethereum/go-ethereum/common".Hash; TxHash @"github.com/ethereum/go-ethereum/common".Hash; ReceiptHash @"github.com/ethereum/go-ethereum/common".Hash; Bloom @"github.com/ethereum/go-ethereum/core/types".Bloom; Difficulty *@"math/big".Int; Number *@"math/big".Int; GasLimit *@"math/big".Int; GasUsed *@"math/big".Int; Time *@"math/big".Int; Extra []byte; MixDigest @"github.com/ethereum/go-ethereum/common".Hash; Nonce @"github.com/ethereum/go-ethereum/core/types".BlockNonce }
+	func (@"github.com/ethereum/go-ethereum/core/types".hÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Header) Hash () (? @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/core/types".hÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Header "esc:0x9") HashNoNonce () (? @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/core/types".hÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Header) String () (? string)
+	func (@"github.com/ethereum/go-ethereum/core/types".hÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Header "esc:0x1") UnmarshalJSON (@"github.com/ethereum/go-ethereum/core/types".dataÂ·3 []byte) (? error)
+	type @"github.com/ethereum/go-ethereum/core/types".txdata struct { AccountNonce uint64; Price *@"math/big".Int; GasLimit *@"math/big".Int; Recipient *@"github.com/ethereum/go-ethereum/common".Address "rlp:\"nil\""; Amount *@"math/big".Int; Payload []byte; V byte; R *@"math/big".Int; S *@"math/big".Int }
+	import atomic "sync/atomic" // indirect
+	type @"sync/atomic".Value struct { @"sync/atomic".v interface {} }
+	func (@"sync/atomic".vÂ·2 *@"sync/atomic".Value) Load () (@"sync/atomic".xÂ·1 interface {})
+	func (@"sync/atomic".vÂ·1 *@"sync/atomic".Value) Store (@"sync/atomic".xÂ·2 interface {})
+	import rlp "github.com/ethereum/go-ethereum/rlp" // indirect
+	type @"github.com/ethereum/go-ethereum/rlp".ByteReader interface { Read(@"io".p []byte) (@"io".n int, @"io".err error); ReadByte() (@"io".c byte, @"io".err error) }
+	type @"github.com/ethereum/go-ethereum/rlp".Kind int
+	func (@"github.com/ethereum/go-ethereum/rlp".kÂ·2 @"github.com/ethereum/go-ethereum/rlp".Kind) String () (? string)
+	type @"github.com/ethereum/go-ethereum/rlp".listpos struct { @"github.com/ethereum/go-ethereum/rlp".pos uint64; @"github.com/ethereum/go-ethereum/rlp".size uint64 }
+	type @"io".Reader interface { Read(@"io".p []byte) (@"io".n int, @"io".err error) }
+	type @"github.com/ethereum/go-ethereum/rlp".Stream struct { @"github.com/ethereum/go-ethereum/rlp".r @"github.com/ethereum/go-ethereum/rlp".ByteReader; @"github.com/ethereum/go-ethereum/rlp".remaining uint64; @"github.com/ethereum/go-ethereum/rlp".limited bool; @"github.com/ethereum/go-ethereum/rlp".uintbuf []byte; @"github.com/ethereum/go-ethereum/rlp".kind @"github.com/ethereum/go-ethereum/rlp".Kind; @"github.com/ethereum/go-ethereum/rlp".size uint64; @"github.com/ethereum/go-ethereum/rlp".byteval byte; @"github.com/ethereum/go-ethereum/rlp".kinderr error; @"github.com/ethereum/go-ethereum/rlp".stack []@"github.com/ethereum/go-ethereum/rlp".listpos }
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x10a") Bool () (? bool, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x11a") Bytes () (? []byte, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·2 *@"github.com/ethereum/go-ethereum/rlp".Stream) Decode (@"github.com/ethereum/go-ethereum/rlp".valÂ·3 interface {}) (? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·4 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x80a") Kind () (@"github.com/ethereum/go-ethereum/rlp".kindÂ·1 @"github.com/ethereum/go-ethereum/rlp".Kind, @"github.com/ethereum/go-ethereum/rlp".sizeÂ·2 uint64, @"github.com/ethereum/go-ethereum/rlp".errÂ·3 error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x10a") List () (@"github.com/ethereum/go-ethereum/rlp".sizeÂ·1 uint64, @"github.com/ethereum/go-ethereum/rlp".errÂ·2 error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·2 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x1") ListEnd () (? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x11a") Raw () (? []byte, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·1 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x1") Reset (@"github.com/ethereum/go-ethereum/rlp".rÂ·2 @"io".Reader, @"github.com/ethereum/go-ethereum/rlp".inputLimitÂ·3 uint64)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x10a") Uint () (? uint64, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x9") @"github.com/ethereum/go-ethereum/rlp".readByte () (? byte, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·2 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x9") @"github.com/ethereum/go-ethereum/rlp".readFull (@"github.com/ethereum/go-ethereum/rlp".bufÂ·3 []byte) (@"github.com/ethereum/go-ethereum/rlp".errÂ·1 error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·4 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x9") @"github.com/ethereum/go-ethereum/rlp".readKind () (@"github.com/ethereum/go-ethereum/rlp".kindÂ·1 @"github.com/ethereum/go-ethereum/rlp".Kind, @"github.com/ethereum/go-ethereum/rlp".sizeÂ·2 uint64, @"github.com/ethereum/go-ethereum/rlp".errÂ·3 error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x9") @"github.com/ethereum/go-ethereum/rlp".readUint (@"github.com/ethereum/go-ethereum/rlp".sizeÂ·4 byte) (? uint64, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x10a") @"github.com/ethereum/go-ethereum/rlp".uint (@"github.com/ethereum/go-ethereum/rlp".maxbitsÂ·4 int) (? uint64, ? error)
+	func (@"github.com/ethereum/go-ethereum/rlp".sÂ·2 *@"github.com/ethereum/go-ethereum/rlp".Stream "esc:0x1") @"github.com/ethereum/go-ethereum/rlp".willRead (@"github.com/ethereum/go-ethereum/rlp".nÂ·3 uint64) (? error) { @"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".kind = @"github.com/ethereum/go-ethereum/rlp".Kind(-0x1); if len(@"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".stack) > 0x0 { var @"github.com/ethereum/go-ethereum/rlp".tosÂ·4 @"github.com/ethereum/go-ethereum/rlp".listpos; ; @"github.com/ethereum/go-ethereum/rlp".tosÂ·4 = @"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".stack[len(@"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".stack) - 0x1]; if @"github.com/ethereum/go-ethereum/rlp".nÂ·3 > @"github.com/ethereum/go-ethereum/rlp".tosÂ·4.@"github.com/ethereum/go-ethereum/rlp".size - @"github.com/ethereum/go-ethereum/rlp".tosÂ·4.@"github.com/ethereum/go-ethereum/rlp".pos { return @"github.com/ethereum/go-ethereum/rlp".ErrElemTooLarge }; @"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".stack[len(@"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".stack) - 0x1].@"github.com/ethereum/go-ethereum/rlp".pos += @"github.com/ethereum/go-ethereum/rlp".nÂ·3 }; if @"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".limited { if @"github.com/ethereum/go-ethereum/rlp".nÂ·3 > @"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".remaining { return @"github.com/ethereum/go-ethereum/rlp".ErrValueTooLarge }; @"github.com/ethereum/go-ethereum/rlp".sÂ·2.@"github.com/ethereum/go-ethereum/rlp".remaining -= @"github.com/ethereum/go-ethereum/rlp".nÂ·3 }; return nil }
+	type @"io".Writer interface { Write(@"io".p []byte) (@"io".n int, @"io".err error) }
+	import ecdsa "crypto/ecdsa" // indirect
+	import elliptic "crypto/elliptic" // indirect
+	type @"crypto/elliptic".CurveParams struct { P *@"math/big".Int; N *@"math/big".Int; B *@"math/big".Int; Gx *@"math/big".Int; Gy *@"math/big".Int; BitSize int; Name string }
+	func (@"crypto/elliptic".curveÂ·3 *@"crypto/elliptic".CurveParams "esc:0x9") Add (@"crypto/elliptic".x1Â·4 *@"math/big".Int "esc:0x9", @"crypto/elliptic".y1Â·5 *@"math/big".Int "esc:0x9", @"crypto/elliptic".x2Â·6 *@"math/big".Int "esc:0x9", @"crypto/elliptic".y2Â·7 *@"math/big".Int "esc:0x9") (? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"crypto/elliptic".curveÂ·3 *@"crypto/elliptic".CurveParams "esc:0x9") Double (@"crypto/elliptic".x1Â·4 *@"math/big".Int "esc:0x9", @"crypto/elliptic".y1Â·5 *@"math/big".Int "esc:0x9") (? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"crypto/elliptic".curveÂ·2 *@"crypto/elliptic".CurveParams "esc:0x9") IsOnCurve (@"crypto/elliptic".xÂ·3 *@"math/big".Int "esc:0x9", @"crypto/elliptic".yÂ·4 *@"math/big".Int "esc:0x9") (? bool)
+	func (@"crypto/elliptic".curveÂ·2 *@"crypto/elliptic".CurveParams "esc:0x12") Params () (? *@"crypto/elliptic".CurveParams) { return @"crypto/elliptic".curveÂ·2 }
+	func (@"crypto/elliptic".curveÂ·3 *@"crypto/elliptic".CurveParams "esc:0x9") ScalarBaseMult (@"crypto/elliptic".kÂ·4 []byte "esc:0x1") (? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"crypto/elliptic".curveÂ·3 *@"crypto/elliptic".CurveParams "esc:0x9") ScalarMult (@"crypto/elliptic".BxÂ·4 *@"math/big".Int "esc:0x9", @"crypto/elliptic".ByÂ·5 *@"math/big".Int "esc:0x9", @"crypto/elliptic".kÂ·6 []byte "esc:0x1") (? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"crypto/elliptic".curveÂ·4 *@"crypto/elliptic".CurveParams "esc:0x9") @"crypto/elliptic".addJacobian (@"crypto/elliptic".x1Â·5 *@"math/big".Int "esc:0x9", @"crypto/elliptic".y1Â·6 *@"math/big".Int "esc:0x9", @"crypto/elliptic".z1Â·7 *@"math/big".Int "esc:0x9", @"crypto/elliptic".x2Â·8 *@"math/big".Int "esc:0x9", @"crypto/elliptic".y2Â·9 *@"math/big".Int "esc:0x9", @"crypto/elliptic".z2Â·10 *@"math/big".Int "esc:0x9") (? *@"math/big".Int, ? *@"math/big".Int, ? *@"math/big".Int)
+	func (@"crypto/elliptic".curveÂ·3 *@"crypto/elliptic".CurveParams "esc:0x9") @"crypto/elliptic".affineFromJacobian (@"crypto/elliptic".xÂ·4 *@"math/big".Int "esc:0x9", @"crypto/elliptic".yÂ·5 *@"math/big".Int "esc:0x9", @"crypto/elliptic".zÂ·6 *@"math/big".Int "esc:0x9") (@"crypto/elliptic".xOutÂ·1 *@"math/big".Int, @"crypto/elliptic".yOutÂ·2 *@"math/big".Int)
+	func (@"crypto/elliptic".curveÂ·4 *@"crypto/elliptic".CurveParams "esc:0x9") @"crypto/elliptic".doubleJacobian (@"crypto/elliptic".xÂ·5 *@"math/big".Int "esc:0x9", @"crypto/elliptic".yÂ·6 *@"math/big".Int "esc:0x9", @"crypto/elliptic".zÂ·7 *@"math/big".Int "esc:0x9") (? *@"math/big".Int, ? *@"math/big".Int, ? *@"math/big".Int)
+	type @"crypto/elliptic".Curve interface { Add(@"crypto/elliptic".x1 *@"math/big".Int, @"crypto/elliptic".y1 *@"math/big".Int, @"crypto/elliptic".x2 *@"math/big".Int, @"crypto/elliptic".y2 *@"math/big".Int) (@"crypto/elliptic".x *@"math/big".Int, @"crypto/elliptic".y *@"math/big".Int); Double(@"crypto/elliptic".x1 *@"math/big".Int, @"crypto/elliptic".y1 *@"math/big".Int) (@"crypto/elliptic".x *@"math/big".Int, @"crypto/elliptic".y *@"math/big".Int); IsOnCurve(@"crypto/elliptic".x *@"math/big".Int, @"crypto/elliptic".y *@"math/big".Int) (? bool); Params() (? *@"crypto/elliptic".CurveParams); ScalarBaseMult(@"crypto/elliptic".k []byte) (@"crypto/elliptic".x *@"math/big".Int, @"crypto/elliptic".y *@"math/big".Int); ScalarMult(@"crypto/elliptic".x1 *@"math/big".Int, @"crypto/elliptic".y1 *@"math/big".Int, @"crypto/elliptic".k []byte) (@"crypto/elliptic".x *@"math/big".Int, @"crypto/elliptic".y *@"math/big".Int) }
+	type @"crypto/ecdsa".PublicKey struct { ? @"crypto/elliptic".Curve; X *@"math/big".Int; Y *@"math/big".Int }
+	import crypto "crypto" // indirect
+	type @"crypto".PublicKey interface {}
+	import hash "hash" // indirect
+	type @"hash".Hash interface { BlockSize() (? int); Reset(); Size() (? int); Sum(@"hash".b []byte) (? []byte); Write(@"io".p []byte) (@"io".n int, @"io".err error) }
+	type @"crypto".Hash uint
+	func (@"crypto".hÂ·2 @"crypto".Hash) Available () (? bool) { return @"crypto".hÂ·2 < @"crypto".Hash(0x10) && @"crypto".hashes[@"crypto".hÂ·2] != nil }
+	func (@"crypto".hÂ·2 @"crypto".Hash) HashFunc () (? @"crypto".Hash) { return @"crypto".hÂ·2 }
+	func (@"crypto".hÂ·2 @"crypto".Hash) New () (? @"hash".Hash)
+	func (@"crypto".hÂ·2 @"crypto".Hash) Size () (? int)
+	type @"crypto".SignerOpts interface { HashFunc() (? @"crypto".Hash) }
+	type @"crypto/ecdsa".PrivateKey struct { ? @"crypto/ecdsa".PublicKey; D *@"math/big".Int }
+	func (@"crypto/ecdsa".privÂ·2 *@"crypto/ecdsa".PrivateKey "esc:0x12") Public () (? @"crypto".PublicKey) { return &@"crypto/ecdsa".privÂ·2.PublicKey }
+	func (@"crypto/ecdsa".privÂ·3 *@"crypto/ecdsa".PrivateKey "esc:0x9") Sign (@"crypto/ecdsa".randÂ·4 @"io".Reader, @"crypto/ecdsa".msgÂ·5 []byte, @"crypto/ecdsa".optsÂ·6 @"crypto".SignerOpts "esc:0x1") (? []byte, ? error)
+	type @"github.com/ethereum/go-ethereum/common".StorageSize float64
+	func (@"github.com/ethereum/go-ethereum/common".selfÂ·2 @"github.com/ethereum/go-ethereum/common".StorageSize) Int64 () (? int64) { return int64(@"github.com/ethereum/go-ethereum/common".selfÂ·2) }
+	func (@"github.com/ethereum/go-ethereum/common".selfÂ·2 @"github.com/ethereum/go-ethereum/common".StorageSize) String () (? string)
+	type @"github.com/ethereum/go-ethereum/core/types".Transaction struct { @"github.com/ethereum/go-ethereum/core/types".data @"github.com/ethereum/go-ethereum/core/types".txdata; @"github.com/ethereum/go-ethereum/core/types".hash @"sync/atomic".Value; @"github.com/ethereum/go-ethereum/core/types".size @"sync/atomic".Value; @"github.com/ethereum/go-ethereum/core/types".from @"sync/atomic".Value }
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") Cost () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") Data () (? []byte) { return @"github.com/ethereum/go-ethereum/common".CopyBytes(@"github.com/ethereum/go-ethereum/core/types".txÂ·2.@"github.com/ethereum/go-ethereum/core/types".data.Payload) }
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction) DecodeRLP (@"github.com/ethereum/go-ethereum/core/types".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream) (? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction) EncodeRLP (@"github.com/ethereum/go-ethereum/core/types".wÂ·3 @"io".Writer) (? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·3 *@"github.com/ethereum/go-ethereum/core/types".Transaction) From () (? @"github.com/ethereum/go-ethereum/common".Address, ? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") Gas () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") GasPrice () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction) Hash () (? @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x1") Nonce () (? uint64) { return @"github.com/ethereum/go-ethereum/core/types".txÂ·2.@"github.com/ethereum/go-ethereum/core/types".data.AccountNonce }
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") SigHash () (? @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·3 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") SignECDSA (@"github.com/ethereum/go-ethereum/core/types".prvÂ·4 *@"crypto/ecdsa".PrivateKey "esc:0x9") (? *@"github.com/ethereum/go-ethereum/core/types".Transaction, ? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·4 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") SignatureValues () (@"github.com/ethereum/go-ethereum/core/types".vÂ·1 byte, @"github.com/ethereum/go-ethereum/core/types".rÂ·2 *@"math/big".Int, @"github.com/ethereum/go-ethereum/core/types".sÂ·3 *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction) Size () (? @"github.com/ethereum/go-ethereum/common".StorageSize)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction) String () (? string)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x1") To () (? *@"github.com/ethereum/go-ethereum/common".Address) { if @"github.com/ethereum/go-ethereum/core/types".txÂ·2.@"github.com/ethereum/go-ethereum/core/types".data.Recipient == nil { return nil } else { var @"github.com/ethereum/go-ethereum/core/types".toÂ·3 @"github.com/ethereum/go-ethereum/common".Address; ; @"github.com/ethereum/go-ethereum/core/types".toÂ·3 = *@"github.com/ethereum/go-ethereum/core/types".txÂ·2.@"github.com/ethereum/go-ethereum/core/types".data.Recipient; return &@"github.com/ethereum/go-ethereum/core/types".toÂ·3 } }
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") Value () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·3 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0xa") WithSignature (@"github.com/ethereum/go-ethereum/core/types".sigÂ·4 []byte "esc:0x1") (? *@"github.com/ethereum/go-ethereum/core/types".Transaction, ? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".txÂ·3 *@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9") @"github.com/ethereum/go-ethereum/core/types".publicKey () (? []byte, ? error)
+	type @"github.com/ethereum/go-ethereum/core/types".Transactions []*@"github.com/ethereum/go-ethereum/core/types".Transaction
+	func (@"github.com/ethereum/go-ethereum/core/types".sÂ·2 @"github.com/ethereum/go-ethereum/core/types".Transactions "esc:0x9") GetRlp (@"github.com/ethereum/go-ethereum/core/types".iÂ·3 int) (? []byte)
+	func (@"github.com/ethereum/go-ethereum/core/types".sÂ·2 @"github.com/ethereum/go-ethereum/core/types".Transactions "esc:0x1") Len () (? int) { return len(@"github.com/ethereum/go-ethereum/core/types".sÂ·2) }
+	func (@"github.com/ethereum/go-ethereum/core/types".sÂ·1 @"github.com/ethereum/go-ethereum/core/types".Transactions "esc:0x9") Swap (@"github.com/ethereum/go-ethereum/core/types".iÂ·2 int, @"github.com/ethereum/go-ethereum/core/types".jÂ·3 int) { @"github.com/ethereum/go-ethereum/core/types".sÂ·1[@"github.com/ethereum/go-ethereum/core/types".iÂ·2], @"github.com/ethereum/go-ethereum/core/types".sÂ·1[@"github.com/ethereum/go-ethereum/core/types".jÂ·3] = @"github.com/ethereum/go-ethereum/core/types".sÂ·1[@"github.com/ethereum/go-ethereum/core/types".jÂ·3], @"github.com/ethereum/go-ethereum/core/types".sÂ·1[@"github.com/ethereum/go-ethereum/core/types".iÂ·2] }
+	import time "time" // indirect
+	type @"time".zone struct { @"time".name string; @"time".offset int; @"time".isDST bool }
+	type @"time".zoneTrans struct { @"time".when int64; @"time".index uint8; @"time".isstd bool; @"time".isutc bool }
+	type @"time".Location struct { @"time".name string; @"time".zone []@"time".zone; @"time".tx []@"time".zoneTrans; @"time".cacheStart int64; @"time".cacheEnd int64; @"time".cacheZone *@"time".zone }
+	func (@"time".lÂ·2 *@"time".Location "esc:0x22") String () (? string)
+	func (@"time".lÂ·2 *@"time".Location "esc:0x1") @"time".firstZoneUsed () (? bool)
+	func (@"time".lÂ·2 *@"time".Location "esc:0x12") @"time".get () (? *@"time".Location)
+	func (@"time".lÂ·6 *@"time".Location "esc:0x32") @"time".lookup (@"time".secÂ·7 int64) (@"time".nameÂ·1 string, @"time".offsetÂ·2 int, @"time".isDSTÂ·3 bool, @"time".startÂ·4 int64, @"time".endÂ·5 int64)
+	func (@"time".lÂ·2 *@"time".Location "esc:0x1") @"time".lookupFirstZone () (? int)
+	func (@"time".lÂ·4 *@"time".Location "esc:0x1") @"time".lookupName (@"time".nameÂ·5 string "esc:0x1", @"time".unixÂ·6 int64) (@"time".offsetÂ·1 int, @"time".isDSTÂ·2 bool, @"time".okÂ·3 bool)
+	type @"time".Duration int64
+	func (@"time".dÂ·2 @"time".Duration) Hours () (? float64) { var @"time".hourÂ·3 @"time".Duration; ; @"time".hourÂ·3 = @"time".dÂ·2 / @"time".Duration(0x34630b8a000); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x34630b8a000); return float64(@"time".hourÂ·3) + float64(@"time".nsecÂ·4) * 8190022623310637111963488201822504381538623676021880892417778544696899264837610290203272971060556344039023584360473938041055625214280336402169897364226048p-553 }
+	func (@"time".dÂ·2 @"time".Duration) Minutes () (? float64) { var @"time".minÂ·3 @"time".Duration; ; @"time".minÂ·3 = @"time".dÂ·2 / @"time".Duration(0xdf8475800); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0xdf8475800); return float64(@"time".minÂ·3) + float64(@"time".nsecÂ·4) * 7678146209353722106395056769533233877065564876941352542109479049699919628723768656821910653339403201031675627614471533358284117434246264392176261853609984p-547 }
+	func (@"time".dÂ·2 @"time".Duration) Nanoseconds () (? int64) { return int64(@"time".dÂ·2) }
+	func (@"time".dÂ·2 @"time".Duration) Seconds () (? float64) { var @"time".secÂ·3 @"time".Duration; ; @"time".secÂ·3 = @"time".dÂ·2 / @"time".Duration(0x3b9aca00); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x3b9aca00); return float64(@"time".secÂ·3) + float64(@"time".nsecÂ·4) * 7198262071269114660816079141112770740375861891461678802759824945047098083990024106014198994535558872472104883612039846078596891298747423852523262413111296p-541 }
+	func (@"time".dÂ·2 @"time".Duration) String () (? string)
+	type @"time".Month int
+	func (@"time".mÂ·2 @"time".Month) String () (? string) { return @"time".months[@"time".mÂ·2 - @"time".Month(0x1)] }
+	type @"time".Weekday int
+	func (@"time".dÂ·2 @"time".Weekday) String () (? string) { return @"time".days[@"time".dÂ·2] }
+	type @"time".Time struct { @"time".sec int64; @"time".nsec int32; @"time".loc *@"time".Location }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Add (@"time".dÂ·3 @"time".Duration) (? @"time".Time) { @"time".tÂ·2.@"time".sec += int64(@"time".dÂ·3 / @"time".Duration(0x3b9aca00)); var @"time".nsecÂ·4 int32; ; @"time".nsecÂ·4 = int32(@"time".tÂ·2.@"time".nsec) + int32(@"time".dÂ·3 % @"time".Duration(0x3b9aca00)); if @"time".nsecÂ·4 >= 0x3b9aca00 { @"time".tÂ·2.@"time".sec++; @"time".nsecÂ·4 -= 0x3b9aca00 } else { if @"time".nsecÂ·4 < 0x0 { @"time".tÂ·2.@"time".sec--; @"time".nsecÂ·4 += 0x3b9aca00 } }; @"time".tÂ·2.@"time".nsec = @"time".nsecÂ·4; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") AddDate (@"time".yearsÂ·3 int, @"time".monthsÂ·4 int, @"time".daysÂ·5 int) (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") After (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec > @"time".uÂ·3.@"time".sec || @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec > @"time".uÂ·3.@"time".nsec }
+	func (@"time".tÂ·2 @"time".Time "esc:0x9") AppendFormat (@"time".bÂ·3 []byte "esc:0x1a", @"time".layoutÂ·4 string "esc:0x9") (? []byte)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Before (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec < @"time".uÂ·3.@"time".sec || @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec < @"time".uÂ·3.@"time".nsec }
+	func (@"time".tÂ·4 @"time".Time "esc:0x1") Clock () (@"time".hourÂ·1 int, @"time".minÂ·2 int, @"time".secÂ·3 int)
+	func (@"time".tÂ·4 @"time".Time "esc:0x1") Date () (@"time".yearÂ·1 int, @"time".monthÂ·2 @"time".Month, @"time".dayÂ·3 int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Day () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Equal (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec == @"time".uÂ·3.@"time".nsec }
+	func (@"time".tÂ·2 @"time".Time "esc:0x9") Format (@"time".layoutÂ·3 string "esc:0x9") (? string)
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") GobDecode (@"time".dataÂ·3 []byte "esc:0x1") (? error)
+	func (@"time".tÂ·3 @"time".Time "esc:0x1") GobEncode () (? []byte, ? error)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Hour () (? int)
+	func (@"time".tÂ·3 @"time".Time "esc:0x1") ISOWeek () (@"time".yearÂ·1 int, @"time".weekÂ·2 int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") In (@"time".locÂ·3 *@"time".Location "esc:0x12") (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") IsZero () (? bool) { return @"time".tÂ·2.@"time".sec == 0x0 && @"time".tÂ·2.@"time".nsec == 0x0 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Local () (? @"time".Time) { @"time".tÂ·2.@"time".loc = @"time".Local; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Location () (? *@"time".Location) { var @"time".lÂ·3 *@"time".Location; ; @"time".lÂ·3 = @"time".tÂ·2.@"time".loc; if @"time".lÂ·3 == nil { @"time".lÂ·3 = @"time".UTC }; return @"time".lÂ·3 }
+	func (@"time".tÂ·3 @"time".Time "esc:0x1") MarshalBinary () (? []byte, ? error)
+	func (@"time".tÂ·3 @"time".Time "esc:0x9") MarshalJSON () (? []byte, ? error)
+	func (@"time".tÂ·3 @"time".Time "esc:0x9") MarshalText () (? []byte, ? error)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Minute () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Month () (? @"time".Month)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Nanosecond () (? int) { return int(@"time".tÂ·2.@"time".nsec) }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Round (@"time".dÂ·3 @"time".Duration) (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Second () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x9") String () (? string)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Sub (@"time".uÂ·3 @"time".Time "esc:0x1") (? @"time".Duration)
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Truncate (@"time".dÂ·3 @"time".Duration) (? @"time".Time)
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") UTC () (? @"time".Time) { @"time".tÂ·2.@"time".loc = @"time".UTC; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Unix () (? int64) { return @"time".tÂ·2.@"time".sec + -0xe7791f700 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") UnixNano () (? int64) { return (@"time".tÂ·2.@"time".sec + -0xe7791f700) * 0x3b9aca00 + int64(@"time".tÂ·2.@"time".nsec) }
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalBinary (@"time".dataÂ·3 []byte "esc:0x1") (? error)
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalJSON (@"time".dataÂ·3 []byte "esc:0x1") (@"time".errÂ·1 error)
+	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalText (@"time".dataÂ·3 []byte "esc:0x1") (@"time".errÂ·1 error)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Weekday () (? @"time".Weekday)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Year () (? int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") YearDay () (? int)
+	func (@"time".tÂ·3 @"time".Time "esc:0x32") Zone () (@"time".nameÂ·1 string, @"time".offsetÂ·2 int)
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") @"time".abs () (? uint64)
+	func (@"time".tÂ·5 @"time".Time "esc:0x1") @"time".date (@"time".fullÂ·6 bool) (@"time".yearÂ·1 int, @"time".monthÂ·2 @"time".Month, @"time".dayÂ·3 int, @"time".ydayÂ·4 int)
+	func (@"time".tÂ·4 @"time".Time "esc:0x32") @"time".locabs () (@"time".nameÂ·1 string, @"time".offsetÂ·2 int, @"time".absÂ·3 uint64)
+	type @"github.com/ethereum/go-ethereum/core/types".Block struct { @"github.com/ethereum/go-ethereum/core/types".header *@"github.com/ethereum/go-ethereum/core/types".Header; @"github.com/ethereum/go-ethereum/core/types".uncles []*@"github.com/ethereum/go-ethereum/core/types".Header; @"github.com/ethereum/go-ethereum/core/types".transactions @"github.com/ethereum/go-ethereum/core/types".Transactions; @"github.com/ethereum/go-ethereum/core/types".hash @"sync/atomic".Value; @"github.com/ethereum/go-ethereum/core/types".size @"sync/atomic".Value; @"github.com/ethereum/go-ethereum/core/types".td *@"math/big".Int; ReceivedAt @"time".Time }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") Bloom () (? @"github.com/ethereum/go-ethereum/core/types".Bloom) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.Bloom }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") Coinbase () (? @"github.com/ethereum/go-ethereum/common".Address) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.Coinbase }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block) DecodeRLP (@"github.com/ethereum/go-ethereum/core/types".sÂ·3 *@"github.com/ethereum/go-ethereum/rlp".Stream) (? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x22") DeprecatedTd () (? *@"math/big".Int) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".td }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") Difficulty () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") EncodeRLP (@"github.com/ethereum/go-ethereum/core/types".wÂ·3 @"io".Writer) (? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") Extra () (? []byte) { return @"github.com/ethereum/go-ethereum/common".CopyBytes(@"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.Extra) }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") GasLimit () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") GasUsed () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block) Hash () (? @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") HashNoNonce () (? @"github.com/ethereum/go-ethereum/common".Hash)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") Header () (? *@"github.com/ethereum/go-ethereum/core/types".Header)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") MixDigest () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.MixDigest }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") Nonce () (? uint64) { return @"encoding/binary".BigEndian.Uint64(@"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.Nonce[:]) }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") Number () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") NumberU64 () (? uint64) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.Number.Uint64() }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") ParentHash () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.ParentHash }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") ReceiptHash () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.ReceiptHash }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") Root () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.Root }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block) Size () (? @"github.com/ethereum/go-ethereum/common".StorageSize)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block) String () (? string)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") Time () (? *@"math/big".Int)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x3a") Transaction (@"github.com/ethereum/go-ethereum/core/types".hashÂ·3 @"github.com/ethereum/go-ethereum/common".Hash) (? *@"github.com/ethereum/go-ethereum/core/types".Transaction)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x22") Transactions () (? @"github.com/ethereum/go-ethereum/core/types".Transactions) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".transactions }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") TxHash () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.TxHash }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") UncleHash () (? @"github.com/ethereum/go-ethereum/common".Hash) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header.UncleHash }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x22") Uncles () (? []*@"github.com/ethereum/go-ethereum/core/types".Header) { return @"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".uncles }
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x1") ValidateFields () (? error)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block "esc:0x9") WithBody (@"github.com/ethereum/go-ethereum/core/types".transactionsÂ·3 []*@"github.com/ethereum/go-ethereum/core/types".Transaction "esc:0x9", @"github.com/ethereum/go-ethereum/core/types".unclesÂ·4 []*@"github.com/ethereum/go-ethereum/core/types".Header "esc:0x9") (? *@"github.com/ethereum/go-ethereum/core/types".Block)
+	func (@"github.com/ethereum/go-ethereum/core/types".bÂ·2 *@"github.com/ethereum/go-ethereum/core/types".Block) WithMiningResult (@"github.com/ethereum/go-ethereum/core/types".nonceÂ·3 uint64, @"github.com/ethereum/go-ethereum/core/types".mixDigestÂ·4 @"github.com/ethereum/go-ethereum/common".Hash) (? *@"github.com/ethereum/go-ethereum/core/types".Block) { var @"github.com/ethereum/go-ethereum/core/types".cpyÂ·5 @"github.com/ethereum/go-ethereum/core/types".Header; ; @"github.com/ethereum/go-ethereum/core/types".cpyÂ·5 = *@"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".header; @"encoding/binary".BigEndian.PutUint64(@"github.com/ethereum/go-ethereum/core/types".cpyÂ·5.Nonce[:], @"github.com/ethereum/go-ethereum/core/types".nonceÂ·3); @"github.com/ethereum/go-ethereum/core/types".cpyÂ·5.MixDigest = @"github.com/ethereum/go-ethereum/core/types".mixDigestÂ·4; return (&@"github.com/ethereum/go-ethereum/core/types".Block{ @"github.com/ethereum/go-ethereum/core/types".header:&@"github.com/ethereum/go-ethereum/core/types".cpyÂ·5, @"github.com/ethereum/go-ethereum/core/types".transactions:@"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".transactions, @"github.com/ethereum/go-ethereum/core/types".uncles:@"github.com/ethereum/go-ethereum/core/types".bÂ·2.@"github.com/ethereum/go-ethereum/core/types".uncles }) }
+	type @"".ChainManager interface { CurrentBlock() (? *@"github.com/ethereum/go-ethereum/core/types".Block); GetBlockByNumber(? uint64) (? *@"github.com/ethereum/go-ethereum/core/types".Block) }
+	type @"".PoW interface { GetHashrate() (? int64); Search(@"".block @"".Block, @"".stop <-chan struct {}, @"".index int) (? uint64, ? []byte); Turbo(? bool); Verify(@"".block @"".Block) (? bool) }
+	func @"".init ()
+	func @"math/big".low64 (@"math/big".zÂ·2 @"math/big".nat "esc:0x1") (? uint64) { if len(@"math/big".zÂ·2) == 0x0 { return 0x0 }; var @"math/big".vÂ·3 uint64; ; @"math/big".vÂ·3 = uint64(@"math/big".zÂ·2[0x0]); if false && len(@"math/big".zÂ·2) > 0x1 { @"math/big".vÂ·3 |= uint64(@"math/big".zÂ·2[0x1]) << 0x20 }; return @"math/big".vÂ·3 }
+	type @"reflect".imethod struct { @"reflect".name *string; @"reflect".pkgPath *string; @"reflect".typ *@"reflect".rtype }
+	type @"reflect".interfaceType struct { @"reflect".? @"reflect".rtype "reflect:\"interface\""; @"reflect".methods []@"reflect".imethod }
+	func (@"reflect".tÂ·2 *@"reflect".interfaceType "esc:0x32") Method (@"reflect".iÂ·3 int) (@"reflect".mÂ·1 @"reflect".Method) { if @"reflect".iÂ·3 < 0x0 || @"reflect".iÂ·3 >= len(@"reflect".tÂ·2.@"reflect".methods) { return  }; var @"reflect".pÂ·4 *@"reflect".imethod; ; @"reflect".pÂ·4 = &@"reflect".tÂ·2.@"reflect".methods[@"reflect".iÂ·3]; @"reflect".mÂ·1.Name = *@"reflect".pÂ·4.@"reflect".name; if @"reflect".pÂ·4.@"reflect".pkgPath != nil { @"reflect".mÂ·1.PkgPath = *@"reflect".pÂ·4.@"reflect".pkgPath }; @"reflect".mÂ·1.Type = @"reflect".toType(@"reflect".pÂ·4.@"reflect".typ); @"reflect".mÂ·1.Index = @"reflect".iÂ·3; return  }
+	func (@"reflect".tÂ·3 *@"reflect".interfaceType "esc:0x32") MethodByName (@"reflect".nameÂ·4 string "esc:0x1") (@"reflect".mÂ·1 @"reflect".Method, @"reflect".okÂ·2 bool)
+	func (@"reflect".tÂ·2 *@"reflect".interfaceType "esc:0x1") NumMethod () (? int) { return len(@"reflect".tÂ·2.@"reflect".methods) }
+	import unsafe "unsafe" // indirect
+	func @"github.com/ethereum/go-ethereum/common".BytesToHash (@"github.com/ethereum/go-ethereum/common".bÂ·2 []byte "esc:0x9") (? @"github.com/ethereum/go-ethereum/common".Hash) { var @"github.com/ethereum/go-ethereum/common".hÂ·3 @"github.com/ethereum/go-ethereum/common".Hash; ; @"github.com/ethereum/go-ethereum/common".hÂ·3.SetBytes(@"github.com/ethereum/go-ethereum/common".bÂ·2); return @"github.com/ethereum/go-ethereum/common".hÂ·3 }
+	import binary "encoding/binary" // indirect
+	type @"encoding/binary".bigEndian struct {}
+	func (? @"encoding/binary".bigEndian) GoString () (? string) { return "binary.BigEndian" }
+	func (? @"encoding/binary".bigEndian) PutUint16 (@"encoding/binary".bÂ·1 []byte "esc:0x1", @"encoding/binary".vÂ·2 uint16) { @"encoding/binary".bÂ·1[0x0] = byte(@"encoding/binary".vÂ·2 >> 0x8); @"encoding/binary".bÂ·1[0x1] = byte(@"encoding/binary".vÂ·2) }
+	func (? @"encoding/binary".bigEndian) PutUint32 (@"encoding/binary".bÂ·1 []byte "esc:0x1", @"encoding/binary".vÂ·2 uint32) { @"encoding/binary".bÂ·1[0x0] = byte(@"encoding/binary".vÂ·2 >> 0x18); @"encoding/binary".bÂ·1[0x1] = byte(@"encoding/binary".vÂ·2 >> 0x10); @"encoding/binary".bÂ·1[0x2] = byte(@"encoding/binary".vÂ·2 >> 0x8); @"encoding/binary".bÂ·1[0x3] = byte(@"encoding/binary".vÂ·2) }
+	func (? @"encoding/binary".bigEndian) PutUint64 (@"encoding/binary".bÂ·1 []byte "esc:0x1", @"encoding/binary".vÂ·2 uint64) { @"encoding/binary".bÂ·1[0x0] = byte(@"encoding/binary".vÂ·2 >> 0x38); @"encoding/binary".bÂ·1[0x1] = byte(@"encoding/binary".vÂ·2 >> 0x30); @"encoding/binary".bÂ·1[0x2] = byte(@"encoding/binary".vÂ·2 >> 0x28); @"encoding/binary".bÂ·1[0x3] = byte(@"encoding/binary".vÂ·2 >> 0x20); @"encoding/binary".bÂ·1[0x4] = byte(@"encoding/binary".vÂ·2 >> 0x18); @"encoding/binary".bÂ·1[0x5] = byte(@"encoding/binary".vÂ·2 >> 0x10); @"encoding/binary".bÂ·1[0x6] = byte(@"encoding/binary".vÂ·2 >> 0x8); @"encoding/binary".bÂ·1[0x7] = byte(@"encoding/binary".vÂ·2) }
+	func (? @"encoding/binary".bigEndian) String () (? string) { return "BigEndian" }
+	func (? @"encoding/binary".bigEndian) Uint16 (@"encoding/binary".bÂ·2 []byte "esc:0x1") (? uint16) { return uint16(@"encoding/binary".bÂ·2[0x1]) | uint16(@"encoding/binary".bÂ·2[0x0]) << 0x8 }
+	func (? @"encoding/binary".bigEndian) Uint32 (@"encoding/binary".bÂ·2 []byte "esc:0x1") (? uint32) { return uint32(@"encoding/binary".bÂ·2[0x3]) | uint32(@"encoding/binary".bÂ·2[0x2]) << 0x8 | uint32(@"encoding/binary".bÂ·2[0x1]) << 0x10 | uint32(@"encoding/binary".bÂ·2[0x0]) << 0x18 }
+	func (? @"encoding/binary".bigEndian) Uint64 (@"encoding/binary".bÂ·2 []byte "esc:0x1") (? uint64) { return uint64(@"encoding/binary".bÂ·2[0x7]) | uint64(@"encoding/binary".bÂ·2[0x6]) << 0x8 | uint64(@"encoding/binary".bÂ·2[0x5]) << 0x10 | uint64(@"encoding/binary".bÂ·2[0x4]) << 0x18 | uint64(@"encoding/binary".bÂ·2[0x3]) << 0x20 | uint64(@"encoding/binary".bÂ·2[0x2]) << 0x28 | uint64(@"encoding/binary".bÂ·2[0x1]) << 0x30 | uint64(@"encoding/binary".bÂ·2[0x0]) << 0x38 }
+	var @"encoding/binary".BigEndian @"encoding/binary".bigEndian
+	var @"github.com/ethereum/go-ethereum/rlp".ErrElemTooLarge error
+	var @"github.com/ethereum/go-ethereum/rlp".ErrValueTooLarge error
+	var @"crypto".hashes []func() (? @"hash".Hash)
+	func @"github.com/ethereum/go-ethereum/common".CopyBytes (@"github.com/ethereum/go-ethereum/common".bÂ·2 []byte "esc:0x9") (@"github.com/ethereum/go-ethereum/common".copiedBytesÂ·1 []byte) { @"github.com/ethereum/go-ethereum/common".copiedBytesÂ·1 = make([]byte, len(@"github.com/ethereum/go-ethereum/common".bÂ·2)); copy(@"github.com/ethereum/go-ethereum/common".copiedBytesÂ·1, @"github.com/ethereum/go-ethereum/common".bÂ·2); return  }
+	var @"time".months [12]string
+	var @"time".days [7]string
+	var @"time".Local *@"time".Location
+	var @"time".UTC *@"time".Location
+	func @"reflect".toType (@"reflect".tÂ·2 *@"reflect".rtype "esc:0x12") (? @"reflect".Type) { if @"reflect".tÂ·2 == nil { return nil }; return @"reflect".tÂ·2 }
+
+$$
+ _go_.o          0           0     0     644     24067     `
+go object darwin amd64 go1.5 X:none
+
+!
+  go13ldmath/big.aPgithub.com/ethereum/go-ethereum/common.aXgithub.com/ethereum/go-ethereum/core/types.a ş"".init  À  ¨eH‹%    H;av>¶    €û t¶    €ûuÃè    Æ    è    è    è    Æ    Ãè    ë¬
+      $  "".initdoneÂ·   <  "".initdoneÂ·   R
+  "runtime.throwinit   b "".initdoneÂ·   n
+  math/big.init   x
+  Vgithub.com/ethereum/go-ethereum/common.init   ‚
+  ^github.com/ethereum/go-ethereum/core/types.init    "".initdoneÂ·   œ
+  0runtime.morestack_noctxt        ` ` 2` 
+ (8 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   ê/Users/jeffrey/go/src/github.com/ethereum/go-ethereum/build/_workspace/src/github.com/ethereum/go-ethereum/pow/pow.goş&"".Block.Difficulty À  ¦eH‹%    H;av=HƒìH‹Y H…ÛtH|$H9;uH‰#H‹\$ H‰$H‹\$H‹[ ÿÓH‹\$H‰\$(HƒÄÃè    ë­
+      v       š
+  0runtime.morestack_noctxt   0   "".~r0  $type.*math/big.Int ""..this  type."".Block  8  ` ` 
+ ;% TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş("".Block.HashNoNonce €  ìeH‹%    H;av`HƒìHH‹Y H…ÛtH|$PH9;uH‰#H|$`1Àè    H‹\$XH‰$H‹\$PH‹[(ÿÓH\$H|$(H‰Şè    Ht$(H|$`è    HƒÄHÃè    ëŠ
+      b
+š	  runtime.duffzero          ®
+  runtime.duffcopy   Ì
+  runtime.duffcopy   à
+  0runtime.morestack_noctxt   `  "".autotmp_0001 ?`type.github.com/ethereum/go-ethereum/common.Hash "".~r0  `type.github.com/ethereum/go-ethereum/common.Hash ""..this  type."".Block [ € € 
+ G9 TgclocalsÂ·d98f60bd8519d0c68364b2a1d83af357 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş$"".Block.MixDigest €  ìeH‹%    H;av`HƒìHH‹Y H…ÛtH|$PH9;uH‰#H|$`1Àè    H‹\$XH‰$H‹\$PH‹[0ÿÓH\$H|$(H‰Şè    Ht$(H|$`è    HƒÄHÃè    ëŠ
+      b
+š	  runtime.duffzero          ®
+  runtime.duffcopy   Ì
+  runtime.duffcopy   à
+  0runtime.morestack_noctxt   `  "".autotmp_0002 ?`type.github.com/ethereum/go-ethereum/common.Hash "".~r0  `type.github.com/ethereum/go-ethereum/common.Hash ""..this  type."".Block [ € € 
+ G9 TgclocalsÂ·d98f60bd8519d0c68364b2a1d83af357 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş"".Block.Nonce À  ¦eH‹%    H;av=HƒìH‹Y H…ÛtH|$H9;uH‰#H‹\$ H‰$H‹\$H‹[8ÿÓH‹\$H‰\$(HƒÄÃè    ë­
+      v       š
+  0runtime.morestack_noctxt   0   "".~r0  type.uint64 ""..this  type."".Block  8  ` 
+` 
+ ;% TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş$"".Block.NumberU64 À  ¦eH‹%    H;av=HƒìH‹Y H…ÛtH|$H9;uH‰#H‹\$ H‰$H‹\$H‹[@ÿÓH‹\$H‰\$(HƒÄÃè    ë­
+      v       š
+  0runtime.morestack_noctxt   0   "".~r0  type.uint64 ""..this  type."".Block  8  ` ` 
+ ;% TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş8"".ChainManager.CurrentBlock À  ¦eH‹%    H;av=HƒìH‹Y H…ÛtH|$H9;uH‰#H‹\$ H‰$H‹\$H‹[ ÿÓH‹\$H‰\$(HƒÄÃè    ë­
+      v       š
+  0runtime.morestack_noctxt   0   "".~r0  ltype.*github.com/ethereum/go-ethereum/core/types.Block ""..this  (type."".ChainManager  8  ` ` 
+ ;% TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş@"".ChainManager.GetBlockByNumber À  ºeH‹%    H;avGHƒìH‹Y H…ÛtH|$ H9;uH‰#H‹\$0H‰\$H‹\$(H‰$H‹\$ H‹[(ÿÓH‹\$H‰\$8HƒÄÃè    ë£
+      Š       ®
+  0runtime.morestack_noctxt   @0  "".~r1 0ltype.*github.com/ethereum/go-ethereum/core/types.Block ""..anon0  type.uint64 ""..this  (type."".ChainManager 0B/0
+ ` ` 
+ E TgclocalsÂ·0ebb2d1da58c1b4224bf5a7b370d7578 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş$"".PoW.GetHashrate À  ¦eH‹%    H;av=HƒìH‹Y H…ÛtH|$H9;uH‰#H‹\$ H‰$H‹\$H‹[ ÿÓH‹\$H‰\$(HƒÄÃè    ë­
+      v       š
+  0runtime.morestack_noctxt   0   "".~r0  type.int64 ""..this  type."".PoW  8  ` ` 
+ ;% TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş"".PoW.Search    ŒeH‹%    H;a†©   HƒìHH‹Y H…ÛtH|$PH9;uH‰#1ÛH‰œ$ˆ   H‰œ$   H‰œ$˜   H‹\$`H‰\$H‹\$hH‰\$H‹\$pH‰\$H‹\$xH‰\$ H‹\$XH‰$H‹\$PH‹[(ÿÓH‹l$(H‹T$0H‹L$8H‹D$@H‰¬$€   H‰”$ˆ   H‰Œ$   H‰„$˜   HƒÄHÃè    é:ÿÿÿ
+      ‚       ú
+  0runtime.morestack_noctxt      "".~r4 ptype.[]uint8 "".~r3 `type.uint64 "".index Ptype.int "".stop @*type.<-chan struct {} "".block  type."".Block ""..this  type."".PoW ¤ Ğ Ğ  O TgclocalsÂ·264f8cc7f114846da938d3984fb4c5ff TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş"".PoW.Turbo À  ¤eH‹%    H;av<HƒìH‹Y H…ÛtH|$H9;uH‰#¶\$(ˆ\$H‹\$ H‰$H‹\$H‹[0ÿÓHƒÄÃè    ë®
+      ˆ       ˜
+  0runtime.morestack_noctxt   0   ""..anon0  type.bool ""..this  type."".PoW  7  ` ` 
+ D TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>ş"".PoW.Verify à  ÌeH‹%    H;avPHƒì H‹Y H…ÛtH|$(H9;uH‰#H‹\$8H‰\$H‹\$@H‰\$H‹\$0H‰$H‹\$(H‹[8ÿÓ¶\$ˆ\$HHƒÄ Ãè    ëš
+             À
+  0runtime.morestack_noctxt   P@  "".~r1 @type.bool "".block  type."".Block ""..this  type."".PoW @K?@ p p 
+ O! TgclocalsÂ·d0110d631ecd4af0947009e36d46dc99 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   <autogenerated>şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş0"".initdoneÂ·  type.uint8   ş"".initÂ·f              "".init   şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·d98f60bd8519d0c68364b2a1d83af357             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·d98f60bd8519d0c68364b2a1d83af357             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             ş"runtime.gcbits.01    ş>go.string.hdr."func() *big.Int"                       6go.string."func() *big.Int"   ş6go.string."func() *big.Int"     func() *big.Int  ş2type.func() *math/big.Int                 ¶¿¸ã 3                                                                                                              0€  runtime.algarray   @  "runtime.gcbits.01   P  >go.string.hdr."func() *big.Int"   p  Dgo.weak.type.*func() *math/big.Int   €  "runtime.zerovalue    € 2type.func() *math/big.Int   Ğ€ 2type.func() *math/big.Int   €  $type.*math/big.Int   ş`go.typelink.func() *big.Int	func() *math/big.Int              2type.func() *math/big.Int   şDgo.string.hdr."func() common.Hash"                       <go.string."func() common.Hash"   ş<go.string."func() common.Hash" 0  &func() common.Hash  şntype.func() github.com/ethereum/go-ethereum/common.Hash                 éØô# 3                                                                                                              0€  runtime.algarray   @  "runtime.gcbits.01   P  Dgo.string.hdr."func() common.Hash"   p  €go.weak.type.*func() github.com/ethereum/go-ethereum/common.Hash   €  "runtime.zerovalue    € ntype.func() github.com/ethereum/go-ethereum/common.Hash   Ğ€ ntype.func() github.com/ethereum/go-ethereum/common.Hash   €  `type.github.com/ethereum/go-ethereum/common.Hash   ş¢go.typelink.func() common.Hash	func() github.com/ethereum/go-ethereum/common.Hash              ntype.func() github.com/ethereum/go-ethereum/common.Hash   ş:go.string.hdr."func() uint64"                       2go.string."func() uint64"   ş2go.string."func() uint64"    func() uint64  ş$type.func() uint64                 Óç$ 3                                                                                                              0€  runtime.algarray   @  "runtime.gcbits.01   P  :go.string.hdr."func() uint64"   p  6go.weak.type.*func() uint64   €  "runtime.zerovalue    € $type.func() uint64   Ğ€ $type.func() uint64   €  type.uint64   şNgo.typelink.func() uint64	func() uint64              $type.func() uint64   ş4go.string.hdr."*pow.Block"             
+          ,go.string."*pow.Block"   ş,go.string."*pow.Block"    *pow.Block  ştype.*"".Block                    ĞÖ¬ 6                                                        0   runtime.algarray   @  "runtime.gcbits.01   P  4go.string.hdr."*pow.Block"   p  .go.weak.type.**"".Block   €  "runtime.zerovalue     type."".Block   ş"runtime.gcbits.03    ş2go.string.hdr."pow.Block"             	          *go.string."pow.Block"   ş*go.string."pow.Block"    pow.Block  ş4go.string.hdr."Difficulty"             
+          ,go.string."Difficulty"   ş,go.string."Difficulty"    Difficulty  ş6go.string.hdr."HashNoNonce"                       .go.string."HashNoNonce"   ş.go.string."HashNoNonce"    HashNoNonce  ş2go.string.hdr."MixDigest"             	          *go.string."MixDigest"   ş*go.string."MixDigest"    MixDigest  ş*go.string.hdr."Nonce"                       "go.string."Nonce"   ş"go.string."Nonce"   Nonce  ş2go.string.hdr."NumberU64"             	          *go.string."NumberU64"   ş*go.string."NumberU64"    NumberU64  ş*go.string.hdr."Block"                       "go.string."Block"   ş"go.string."Block"   Block  şfgo.string.hdr."github.com/ethereum/go-ethereum/pow"             #          ^go.string."github.com/ethereum/go-ethereum/pow"   ş^go.string."github.com/ethereum/go-ethereum/pow" P  Hgithub.com/ethereum/go-ethereum/pow  ş"go.importpath."".             #          ^go.string."github.com/ethereum/go-ethereum/pow"   ştype."".Block  €  €              §Ÿ¡‘                                                                                                                                                                                                                                       (0à  runtime.algarray   @  "runtime.gcbits.03   P  2go.string.hdr."pow.Block"   p  type.*"".Block   €  "runtime.zerovalue   À type."".Block   À  4go.string.hdr."Difficulty"   à  2type.func() *math/big.Int   ğ  6go.string.hdr."HashNoNonce"     ntype.func() github.com/ethereum/go-ethereum/common.Hash      2go.string.hdr."MixDigest"   À  ntype.func() github.com/ethereum/go-ethereum/common.Hash   Ğ  *go.string.hdr."Nonce"   ğ  $type.func() uint64   €  2go.string.hdr."NumberU64"      $type.func() uint64   `° type."".Block   °  *go.string.hdr."Block"   À  "go.importpath."".   Ğ€ type."".Block   şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·0ebb2d1da58c1b4224bf5a7b370d7578             şFgo.string.hdr."func() *types.Block"                       >go.string."func() *types.Block"   ş>go.string."func() *types.Block" 0  (func() *types.Block  şztype.func() *github.com/ethereum/go-ethereum/core/types.Block                 i~ 3                                                                                                              0€  runtime.algarray   @  "runtime.gcbits.01   P  Fgo.string.hdr."func() *types.Block"   p  Œgo.weak.type.*func() *github.com/ethereum/go-ethereum/core/types.Block   €  "runtime.zerovalue    € ztype.func() *github.com/ethereum/go-ethereum/core/types.Block   Ğ€ ztype.func() *github.com/ethereum/go-ethereum/core/types.Block   €  ltype.*github.com/ethereum/go-ethereum/core/types.Block   ş°go.typelink.func() *types.Block	func() *github.com/ethereum/go-ethereum/core/types.Block              ztype.func() *github.com/ethereum/go-ethereum/core/types.Block   şRgo.string.hdr."func(uint64) *types.Block"                       Jgo.string."func(uint64) *types.Block"   şJgo.string."func(uint64) *types.Block" @  4func(uint64) *types.Block  ş†type.func(uint64) *github.com/ethereum/go-ethereum/core/types.Block                   ÙÄjB 3                                                                                                                    0€  runtime.algarray   @  "runtime.gcbits.01   P  Rgo.string.hdr."func(uint64) *types.Block"   p  ˜go.weak.type.*func(uint64) *github.com/ethereum/go-ethereum/core/types.Block   €  "runtime.zerovalue    € †type.func(uint64) *github.com/ethereum/go-ethereum/core/types.Block   Ğ †type.func(uint64) *github.com/ethereum/go-ethereum/core/types.Block   €  type.uint64     ltype.*github.com/ethereum/go-ethereum/core/types.Block   şÈgo.typelink.func(uint64) *types.Block	func(uint64) *github.com/ethereum/go-ethereum/core/types.Block              †type.func(uint64) *github.com/ethereum/go-ethereum/core/types.Block   şBgo.string.hdr."*pow.ChainManager"                       :go.string."*pow.ChainManager"   ş:go.string."*pow.ChainManager" 0  $*pow.ChainManager  ş*type.*"".ChainManager                    q»?ş 6                                                        0   runtime.algarray   @  "runtime.gcbits.01   P  Bgo.string.hdr."*pow.ChainManager"   p  <go.weak.type.**"".ChainManager   €  "runtime.zerovalue     (type."".ChainManager   ş@go.string.hdr."pow.ChainManager"                       8go.string."pow.ChainManager"   ş8go.string."pow.ChainManager" 0  "pow.ChainManager  ş8go.string.hdr."CurrentBlock"                       0go.string."CurrentBlock"   ş0go.string."CurrentBlock"    CurrentBlock  ş@go.string.hdr."GetBlockByNumber"                       8go.string."GetBlockByNumber"   ş8go.string."GetBlockByNumber" 0  "GetBlockByNumber  ş8go.string.hdr."ChainManager"                       0go.string."ChainManager"   ş0go.string."ChainManager"    ChainManager  ş(type."".ChainManager  ğ  ğ              aéêˆ                                                                                                                                                               0à  runtime.algarray   @  "runtime.gcbits.03   P  @go.string.hdr."pow.ChainManager"   p  *type.*"".ChainManager   €  "runtime.zerovalue   À (type."".ChainManager   À  8go.string.hdr."CurrentBlock"   à  ztype.func() *github.com/ethereum/go-ethereum/core/types.Block   ğ  @go.string.hdr."GetBlockByNumber"     †type.func(uint64) *github.com/ethereum/go-ethereum/core/types.Block   `  (type."".ChainManager      8go.string.hdr."ChainManager"   °  "go.importpath."".   Àğ (type."".ChainManager   şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·264f8cc7f114846da938d3984fb4c5ff      
+       şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·d0110d631ecd4af0947009e36d46dc99             ş8go.string.hdr."func() int64"                       0go.string."func() int64"   ş0go.string."func() int64"    func() int64  ş"type.func() int64                 a|‘ 3                                                                                                              0€  runtime.algarray   @  "runtime.gcbits.01   P  8go.string.hdr."func() int64"   p  4go.weak.type.*func() int64   €  "runtime.zerovalue    € "type.func() int64   Ğ€ "type.func() int64   €  type.int64   şJgo.typelink.func() int64	func() int64              "type.func() int64   şruntime.gcbits.      ş2go.string.hdr."struct {}"             	          *go.string."struct {}"   ş*go.string."struct {}"    struct {}  ştype.struct {} À  À                ¬ö' ™                                                                        0   runtime.algarray   @  runtime.gcbits.   P  2go.string.hdr."struct {}"   p  .go.weak.type.*struct {}   €  "runtime.zerovalue   À type.struct {}   ş@go.string.hdr."<-chan struct {}"                       8go.string."<-chan struct {}"   ş8go.string."<-chan struct {}" 0  "<-chan struct {}  ş*type.<-chan struct {} °  °              ‘U¨ 2                                                               0   runtime.algarray   @  "runtime.gcbits.01   P  @go.string.hdr."<-chan struct {}"   p  <go.weak.type.*<-chan struct {}   €  "runtime.zerovalue     type.struct {}   şZgo.typelink.<-chan struct {}	<-chan struct {}              *type.<-chan struct {}   ş.go.string.hdr."[]uint8"                       &go.string."[]uint8"   ş&go.string."[]uint8"   []uint8  ştype.[]uint8                   ß~.8                                                         0   runtime.algarray   @  "runtime.gcbits.01   P  .go.string.hdr."[]uint8"   p  *go.weak.type.*[]uint8   €  "runtime.zerovalue     type.uint8   ş6go.typelink.[]uint8	[]uint8              type.[]uint8   şgo.string.hdr."func(pow.Block, <-chan struct {}, int) (uint64, []uint8)"             8          ˆgo.string."func(pow.Block, <-chan struct {}, int) (uint64, []uint8)"   şˆgo.string."func(pow.Block, <-chan struct {}, int) (uint64, []uint8)" €  rfunc(pow.Block, <-chan struct {}, int) (uint64, []uint8)  şxtype.func("".Block, <-chan struct {}, int) (uint64, []uint8) Ğ  Ğ              Ëw¦ 3                                                                                                                                            0€  runtime.algarray   @  "runtime.gcbits.01   P  go.string.hdr."func(pow.Block, <-chan struct {}, int) (uint64, []uint8)"   p  Šgo.weak.type.*func("".Block, <-chan struct {}, int) (uint64, []uint8)   €  "runtime.zerovalue    € xtype.func("".Block, <-chan struct {}, int) (uint64, []uint8)   Ğ° xtype.func("".Block, <-chan struct {}, int) (uint64, []uint8)   €  type."".Block     *type.<-chan struct {}      type.int   °  type.uint64   À  type.[]uint8   şøgo.typelink.func(pow.Block, <-chan struct {}, int) (uint64, []uint8)	func("".Block, <-chan struct {}, int) (uint64, []uint8)              xtype.func("".Block, <-chan struct {}, int) (uint64, []uint8)   ş4go.string.hdr."func(bool)"             
+          ,go.string."func(bool)"   ş,go.string."func(bool)"    func(bool)  ştype.func(bool)                 7Hù× 3                                                                                                              0€  runtime.algarray   @  "runtime.gcbits.01   P  4go.string.hdr."func(bool)"   p  0go.weak.type.*func(bool)   €  "runtime.zerovalue    € type.func(bool)   Ğ type.func(bool)   €  type.bool   şBgo.typelink.func(bool)	func(bool)              type.func(bool)   şHgo.string.hdr."func(pow.Block) bool"                       @go.string."func(pow.Block) bool"   ş@go.string."func(pow.Block) bool" 0  *func(pow.Block) bool  ş0type.func("".Block) bool                   @@ 3                                                                                                                    0€  runtime.algarray   @  "runtime.gcbits.01   P  Hgo.string.hdr."func(pow.Block) bool"   p  Bgo.weak.type.*func("".Block) bool   €  "runtime.zerovalue    € 0type.func("".Block) bool   Ğ 0type.func("".Block) bool   €  type."".Block     type.bool   şhgo.typelink.func(pow.Block) bool	func("".Block) bool              0type.func("".Block) bool   ş0go.string.hdr."*pow.PoW"                       (go.string."*pow.PoW"   ş(go.string."*pow.PoW"    *pow.PoW  ştype.*"".PoW                    âMàR 6                                                        0   runtime.algarray   @  "runtime.gcbits.01   P  0go.string.hdr."*pow.PoW"   p  *go.weak.type.**"".PoW   €  "runtime.zerovalue     type."".PoW   ş.go.string.hdr."pow.PoW"                       &go.string."pow.PoW"   ş&go.string."pow.PoW"   pow.PoW  ş6go.string.hdr."GetHashrate"                       .go.string."GetHashrate"   ş.go.string."GetHashrate"    GetHashrate  ş,go.string.hdr."Search"                       $go.string."Search"   ş$go.string."Search"   Search  ş*go.string.hdr."Turbo"                       "go.string."Turbo"   ş"go.string."Turbo"   Turbo  ş,go.string.hdr."Verify"                       $go.string."Verify"   ş$go.string."Verify"   Verify  ş&go.string.hdr."PoW"                       go.string."PoW"   şgo.string."PoW"   PoW  ştype."".PoW  Ğ  Ğ              `ë<4                                                                                                                                                                                                               $0à  runtime.algarray   @  "runtime.gcbits.03   P  .go.string.hdr."pow.PoW"   p  type.*"".PoW   €  "runtime.zerovalue   À type."".PoW   À  6go.string.hdr."GetHashrate"   à  "type.func() int64   ğ  ,go.string.hdr."Search"     xtype.func("".Block, <-chan struct {}, int) (uint64, []uint8)      *go.string.hdr."Turbo"   À  type.func(bool)   Ğ  ,go.string.hdr."Verify"   ğ  0type.func("".Block) bool   `€ type."".PoW   €  &go.string.hdr."PoW"     "go.importpath."".    Ğ type."".PoW   ş.go.string.hdr."runtime"                       &go.string."runtime"   ş&go.string."runtime"   runtime  ş,go.importpath.runtime.                       &go.string."runtime"   ş0go.string.hdr."math/big"                       (go.string."math/big"   ş(go.string."math/big"    math/big  ş.go.importpath.math/big.                       (go.string."math/big"   şlgo.string.hdr."github.com/ethereum/go-ethereum/common"             &          dgo.string."github.com/ethereum/go-ethereum/common"   şdgo.string."github.com/ethereum/go-ethereum/common" P  Ngithub.com/ethereum/go-ethereum/common  şjgo.importpath.github.com/ethereum/go-ethereum/common.             &          dgo.string."github.com/ethereum/go-ethereum/common"   ştgo.string.hdr."github.com/ethereum/go-ethereum/core/types"             *          lgo.string."github.com/ethereum/go-ethereum/core/types"   şlgo.string."github.com/ethereum/go-ethereum/core/types" `  Vgithub.com/ethereum/go-ethereum/core/types  şrgo.importpath.github.com/ethereum/go-ethereum/core/types.             *          lgo.string."github.com/ethereum/go-ethereum/core/types"   ş,"".Block.DifficultyÂ·f              &"".Block.Difficulty   ş."".Block.HashNoNonceÂ·f              ("".Block.HashNoNonce   ş*"".Block.MixDigestÂ·f              $"".Block.MixDigest   ş""".Block.NonceÂ·f              "".Block.Nonce   ş*"".Block.NumberU64Â·f              $"".Block.NumberU64   ş>"".ChainManager.CurrentBlockÂ·f              8"".ChainManager.CurrentBlock   şF"".ChainManager.GetBlockByNumberÂ·f              @"".ChainManager.GetBlockByNumber   ş*"".PoW.GetHashrateÂ·f              $"".PoW.GetHashrate   ş "".PoW.SearchÂ·f              "".PoW.Search   ş"".PoW.TurboÂ·f              "".PoW.Turbo   ş "".PoW.VerifyÂ·f              "".PoW.Verify   ş"runtime.zerovalue      ÿÿgo13ld 
