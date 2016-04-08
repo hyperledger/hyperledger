@@ -7,6 +7,12 @@ Thank you for your interest in the Hyperledger Project. Currently there have bee
 
 The LF has setup an incubator org for various proposals and prototyping efforts. The incubator GitHub org is available at [https://github.com/orgs/hyperledger-incubator](https://github.com/orgs/hyperledger-incubator)
 
+##Intel Proposed Contribution
+
+Designed for versatility and scalability, [Sawtooth Lake](http://intelledger.github.io/) is Intel’s modular blockchain suite.  Distributed Ledger Technology has potential in many fields with use cases from IoT to Financials.  This architecture recognizes the diversity of requirements across that spectrum.  Sawtooth Lake supports both permissioned and permissionless deployments.  It includes a novel consensus algorithm, Proof of Elapsed Time (PoET).  PoET targets large distributed validator populations with minimal resource consumption.  Transaction business logic is decoupled from the consensus layer into Transaction Families that allow for restricted or unfettered semantics.
+
+[https://github.com/intelledger]([https://github.com/intelledger])
+
 ## Ripple Proposed Contribution
 
 Rippled is an open source, actively maintained, C++ implementation of a public, distributed ledger. The Ripple network has been operational as a public network since 2012, providing cross-currency atomic payments. Rippled includes a high-performance group of core classes for resistance to algorithmic complexity attacks, resource management and binary representations of ledgers and transactions. Because Ripple's use case includes complex, cross-currency payments using order books, there is significant infrastructure to simplify the development of transactors that implement complex semantics.
