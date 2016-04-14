@@ -3,9 +3,11 @@ Hyperledger Project is a new Collaborative Project at The Linux Foundation. The 
 
 Thank you for your interest in the Hyperledger Project. Currently there have been proposed contributions with potentially others in the future. At present the TSC and community are looking at ways to build a platform that can provide common plumbing for a wide range of use cases and value added solutions on top. Please keep in mind all of the proposals below are simply proposals and that the community will evaluate various ways to get started. Below are the links to the codebases for evaluation purposes, in no particular order:
 
-## Hyperledger Incubator
+## Fabric Incubator
 
-The LF has setup an incubator org for various proposals and prototyping efforts. The incubator GitHub org is available at [https://github.com/orgs/hyperledger-incubator](https://github.com/orgs/hyperledger-incubator)
+[Fabric](https://github.com/hyperledger/fabric) is a project in [Incubation](https://github.com/orgs/hyperledger-incubator) that was proposed by Tamas Blummer (DAH) and Christopher Ferris (IBM) as a result of the first hackathon during which a merge between IBM's proposal and DAH's proposal was started (see [Proposal](https://docs.google.com/document/d/1XECRVN9hXGrjAjysrnuNSdggzAKYm6XESR6KmABwhkE)).
+
+[https://github.com/hyperledger/fabric](https://github.com/hyperledger/fabric)
 
 ##Intel Proposed Contribution
 
@@ -40,3 +42,7 @@ Digital Asset's Hyperledger candidate contribution is an enterprise ready blockc
 Blockstream is contributing [the Elements Project](https://elementsproject.org), a modularized fork of the Bitcoin codebase that adds several major improvements called "Elements".  Elements are composable features that allow a blockchain's attributes to be customized, including [Confidential Transactions](https://elementsproject.org/elements/confidential-transactions), [Segregated Witness](https://elementsproject.org/elements/segregated-witness), and [Deterministic Pegs](https://elementsproject.org/elements/deterministic-pegs).  Sidechains are interoperable blockchains implementing atomic, cross-chain transactions using a choice of federated, permissioned, or decentralized consensus models.  This model allows HyperLedger to interoperate with the existing developer community – sharing progress on testing, scalability, and features – by allowing anyone in the world to utilize shared infrastructure to solve domain-specific problems on purpose-built sidechains.
 
 [https://github.com/ElementsProject/elements](https://github.com/ElementsProject/elements)
+
+## Defunct Hyperledger Incubator
+
+The LF had initially setup an incubator org for various proposals and prototyping efforts. This incubator GitHub org (https://github.com/orgs/hyperledger-incubator) is however no longer used. 
