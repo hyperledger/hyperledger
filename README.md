@@ -1,7 +1,14 @@
 # Hyperledger Project
-Hyperledger Project is a new Collaborative Project at The Linux Foundation. The technical community is just getting started and will be adding code to the repository in the coming weeks. Check hyperledger.org for more information about joining the mailing lists and participating in the conversations.
 
-Thank you for your interest in the Hyperledger Project. Currently there have been proposed contributions with potentially others in the future. At present the TSC and community are looking at ways to build a platform that can provide common plumbing for a wide range of use cases and value added solutions on top. Please keep in mind all of the proposals below are simply proposals and that the community will evaluate various ways to get started. Below are the links to the codebases for evaluation purposes, in no particular order:
+Thank you for your interest in the Hyperledger Project, a Collborative Project at the Linux Foundation. The Hyperledger Project seeks to develop a distributed ledger platform that can provide building blocks for a wide range of use cases and value-add solutions. The project operates with some basic principles:
+
+* Given the diversity of usages, modularity is critical. Examples include transaction semantics, contract languages, consensus, identity, and storage.
+
+* Code speaks. The objective of the project is to develop technologies that can be used to build and deploy distributed ledgers quickly and easily.
+
+* The project will evolve over time with better understanding of requirements and emerging usages. While the objective is to develop a single platform, we expect that platform to emerge from a diverse set of approaches.
+
+Check [the community page](http://hyperledger.org/community) for more information about joining the mailing lists and participating in the conversations. Contributions to the Hyperledger Project are expected to progress through a standard [life cycle](https://github.com/hyperledger/hyperledger/wiki/Project-Lifecycle) from incubation through maturity. Several codebases have been offered as a starting point for evaluation:
 
 ## Fabric Incubator
 
@@ -45,4 +52,4 @@ Blockstream is contributing [the Elements Project](https://elementsproject.org),
 
 ## Defunct Hyperledger Incubator
 
-The LF had initially setup an incubator org for various proposals and prototyping efforts. This incubator GitHub org (https://github.com/orgs/hyperledger-incubator) is however no longer used. 
+The LF had initially setup an incubator org for various proposals and prototyping efforts. This incubator GitHub org (https://github.com/orgs/hyperledger-incubator) is however no longer used.
