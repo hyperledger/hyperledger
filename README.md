@@ -23,7 +23,7 @@ There are two repositories that comprise the fabric incubator:
 
 You can find out how to contribute to the Fabric project [here](https://github.com/hyperledger/fabric/blob/master/CONTRIBUTING.md) and [here](https://github.com/hyperledger/fabric-api/blob/master/docs/contributing.md).
 
-## Swatooth Lake Incubator
+## Sawtooth Lake Incubator
 
 Designed for versatility and scalability, [Sawtooth Lake](http://hyperledger/sawtooth-core) is Intel’s modular blockchain suite.  Distributed Ledger Technology has potential in many fields with use cases from IoT to Financials.  This architecture recognizes the diversity of requirements across that spectrum.  Sawtooth Lake supports both permissioned and permissionless deployments.  It includes a novel consensus algorithm, Proof of Elapsed Time (PoET).  PoET targets large distributed validator populations with minimal resource consumption.  Transaction business logic is decoupled from the consensus layer into Transaction Families that allow for restricted or unfettered semantics.
 
