@@ -1,6 +1,6 @@
 # Hyperledger Project
 
-Thank you for your interest in the Hyperledger Project, a Collborative Project at the Linux Foundation. The Hyperledger Project aims to develop a distributed ledger platform that can provide building blocks for a wide range of use cases and value-add solutions. The project operates with some basic principles:
+Thank you for your interest in the Hyperledger Project, a Collaborative Project at the Linux Foundation. The Hyperledger Project aims to develop a distributed ledger platform that can provide building blocks for a wide range of use cases and value-add solutions. The project operates with some basic principles:
 
 * Given the diversity of usages, modularity is critical. Examples include transaction semantics, contract languages, consensus, identity, and storage.
 
