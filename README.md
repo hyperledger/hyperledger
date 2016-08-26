@@ -18,17 +18,22 @@ We invite anyone with an interest to participate via contributions to any and al
 
 ## Fabric Incubator
 
-[Fabric](https://gerrit.hyperledger.org/r/gitweb?p=fabric.git;a=tree) is a project in [Incubation](https://github.com/hyperledger/hyperledger/wiki/Project-Lifecycle) that was proposed by Tamas Blummer (DAH) and Christopher Ferris (IBM) as a result of the first hackathon during which a merge between IBM's proposal and DAH's proposal was started (see [Proposal](https://docs.google.com/document/d/1XECRVN9hXGrjAjysrnuNSdggzAKYm6XESR6KmABwhkE)).
+The Hyperledger [fabric](https://github.com/hyperledger/fabric) is a project in [Incubation](https://github.com/hyperledger/hyperledger/wiki/Project-Lifecycle) that was proposed by Tamas Blummer (DAH) and Christopher Ferris (IBM) as a result of the first hackathon during which a merge between IBM's proposal and DAH's proposal was started (see [Proposal](https://docs.google.com/document/d/1XECRVN9hXGrjAjysrnuNSdggzAKYm6XESR6KmABwhkE)).
 
 The fabric is an implementation of blockchain technology that is intended as a foundation for developing blockchain applications or solutions. It offers a modular architecture allowing components, such as consensus and membership services, to be plug-and-play. It leverages container technology to host smart contracts called "chaincode" that comprise the application logic of the system. 
 
 There are three repositories that comprise the fabric incubator:
 
-* [fabric](https://gerrit.hyperledger.org/r/gitweb?p=fabric.git;a=tree)
-* [fabric-api](https://gerrit.hyperledger.org/r/gitweb?p=fabric-api.git;a=tree)
+* [fabric (Gerrit)](https://gerrit.hyperledger.org/r/gitweb?p=fabric.git;a=tree)
+* [fabric-api (Gerrit)](https://gerrit.hyperledger.org/r/gitweb?p=fabric-api.git;a=tree)
 * [fabric-chaintool](https://github.com/hyperledger/fabric-chaintool)
 
-You can find out how to contribute to the Fabric project [here](http://cbf-fabric-docs.readthedocs.io/en/latest/?badge=latest#contributing-to-the-project) and [here](https://github.com/hyperledger/fabric-api/blob/master/docs/contributing.md). Documentation for the Fabric can be found [here](http://cbf-fabric-docs.readthedocs.io/en/latest/).
+**Note:** we also maintain _read-only_ mirrors of our Gerrit managed repos on GitHub:
+
+* [fabric](https://github.com/hyperledger/fabric)
+* [fabric-api](https://github.com/hyperledger/fabric-api)
+
+You can find out how to contribute to the fabric project [here](http://hyperledger-fabric.readthedocs.io/en/latest/CONTRIBUTING/). Complete documentation for the fabric can be found [here](http://hyperledger-fabric.readthedocs.io/en/latest/). We use [Jira](https://jira.hyperledger.org/secure/RapidBoard.jspa?rapidView=7&view=planning.nodetail) for tracking issues and development.
 
 ## Sawtooth Lake Incubator
 
