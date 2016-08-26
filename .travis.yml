@@ -1,0 +1,7 @@
+# This is a dummy, null-operations travis build file. This is done purposefully, as the hyperledger/hyperledger repository currently - as of 2016-07-18 - has no code to build. This repository only has a few documentation files.
+before_install: true
+install: true
+before_script: true
+script: true
+after_success: true
+after_script: true

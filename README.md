@@ -13,17 +13,22 @@ Check [the community page](http://hyperledger.org/community) for more informatio
 ## Contributions most welcome!
 We invite anyone with an interest to participate via contributions to any and all of the Hyperledger's projects. If you are interested in tracking our progress, we document and record all decisions and project proposals etc on our [wiki](https://github.com/hyperledger/hyperledger/wiki). There, you'll also find a few working groups working on such activities as collecting and documenting [use cases and requirements](https://github.com/hyperledger/hyperledger/wiki/Requirements-WG), discussing and developing the architecture, exploring issues and solutions for dealing with the challenges of Identity and working on articulting our overall vision through development of a [whitepaper](https://github.com/hyperledger/hyperledger/wiki/Whitepaper-WG). Each of these activities, as well as hacking on the various projects, listed below, are open to all that wish to engage.
 
+## Blockchain Explorer Incubator
+[Blockchain-explorer](https://gerrit.hyperledger.org/r/gitweb?p=blockchain-explorer.git;a=tree) is a project in [Incubation](https://github.com/hyperledger/hyperledger/wiki/Project-Lifecycle) that was proposed by Christopher Ferris (IBM), Dan Middleton (Intel) and Pardha Vishnumolakala (DTCC) to create a user friendly web application for Hyperledger to view/query blocks, transactions and associated data, network information (name, status, list of nodes), chain codes/transaction families (view/invoke/deploy/query) and any other relevant information stored in the ledger.
+
 ## Fabric Incubator
 
-[Fabric](https://github.com/hyperledger/fabric) is a project in [Incubation](https://github.com/hyperledger/hyperledger/wiki/Project-Lifecycle) that was proposed by Tamas Blummer (DAH) and Christopher Ferris (IBM) as a result of the first hackathon during which a merge between IBM's proposal and DAH's proposal was started (see [Proposal](https://docs.google.com/document/d/1XECRVN9hXGrjAjysrnuNSdggzAKYm6XESR6KmABwhkE)).
+[Fabric](https://gerrit.hyperledger.org/r/gitweb?p=fabric.git;a=tree) is a project in [Incubation](https://github.com/hyperledger/hyperledger/wiki/Project-Lifecycle) that was proposed by Tamas Blummer (DAH) and Christopher Ferris (IBM) as a result of the first hackathon during which a merge between IBM's proposal and DAH's proposal was started (see [Proposal](https://docs.google.com/document/d/1XECRVN9hXGrjAjysrnuNSdggzAKYm6XESR6KmABwhkE)).
 
 The fabric is an implementation of blockchain technology that is intended as a foundation for developing blockchain applications or solutions. It offers a modular architecture allowing components, such as consensus and membership services, to be plug-and-play. It leverages container technology to host smart contracts called "chaincode" that comprise the application logic of the system. 
 
-There are two repositories that comprise the fabric incubator:
-[https://github.com/hyperledger/fabric](https://github.com/hyperledger/fabric)
-[https://github.com/hyperledger/fabric-api](https://github.com/hyperledger/fabric-api)
+There are three repositories that comprise the fabric incubator:
 
-You can find out how to contribute to the Fabric project [here](https://github.com/hyperledger/fabric/blob/master/CONTRIBUTING.md) and [here](https://github.com/hyperledger/fabric-api/blob/master/docs/contributing.md).
+* [fabric](https://gerrit.hyperledger.org/r/gitweb?p=fabric.git;a=tree)
+* [fabric-api](https://gerrit.hyperledger.org/r/gitweb?p=fabric-api.git;a=tree)
+* [fabric-chaintool](https://github.com/hyperledger/fabric-chaintool)
+
+You can find out how to contribute to the Fabric project [here](http://cbf-fabric-docs.readthedocs.io/en/latest/?badge=latest#contributing-to-the-project) and [here](https://github.com/hyperledger/fabric-api/blob/master/docs/contributing.md). Documentation for the Fabric can be found [here](http://cbf-fabric-docs.readthedocs.io/en/latest/).
 
 ## Sawtooth Lake Incubator
 
