@@ -39,13 +39,8 @@ You can find out how to contribute to the fabric project [here](http://hyperledg
 
 Designed for versatility and scalability, [Sawtooth Lake](https://github.com/hyperledger/sawtooth-core) is Intel’s modular blockchain suite.  Distributed Ledger Technology has potential in many fields with use cases from IoT to Financials.  This architecture recognizes the diversity of requirements across that spectrum.  Sawtooth Lake supports both permissioned and permissionless deployments.  It includes a novel consensus algorithm, Proof of Elapsed Time (PoET).  PoET targets large distributed validator populations with minimal resource consumption.  Transaction business logic is decoupled from the consensus layer into Transaction Families that allow for restricted or unfettered semantics.
 
-There are six repositories that comprise the Sawtooth Lake project:
+The Sawtooth Lake project is contained in a single repository. The tools and code that were previously contained in multiple repositories have been consolidated:
 
 * [https://github.com/hyperledger/sawtooth-core](https://github.com/hyperledger/sawtooth-core)
-* [https://github.com/hyperledger/sawtooth-validator](https://github.com/hyperledger/sawtooth-validator)
-* [https://github.com/hyperledger/sawtooth-arcade](https://github.com/hyperledger/sawtooth-arcade)
-* [https://github.com/hyperledger/sawtooth-docs](https://github.com/hyperledger/sawtooth-docs)
-* [https://github.com/hyperledger/sawtooth-mktplace](https://github.com/hyperledger/sawtooth-mktplace)
-* [https://github.com/hyperledger/sawtooth-dev-tools](https://github.com/hyperledger/sawtooth-dev-tools)
 
 You can find out how to contribute to the Sawtooth lake project [here](https://github.com/hyperledger/sawtooth-core/blob/master/CONTRIBUTING.md)
