@@ -22,7 +22,7 @@ Hyperledger has the following goals:
 Hyperledger incubates and promotes a [range of business blockchain technologies](https://www.hyperledger.org/projects), including distributed ledger frameworks, smart contract engines, client libraries, graphical interfaces, utility libraries and sample applications. The Hyperledger umbrella strategy encourages the re-use of common building blocks and enables rapid innovation of DLT components. Hyperledger's different projects progress through a standard [life cycle](https://wiki.hyperledger.org/display/HYP/Project+Lifecycle).  
 
 ## Get Involved with the Community
-There are a number of ways that you can get involved with the [Hyperledger community](http://hyperledger.org/community):
+There are a number of ways that you can get involved with the [Hyperledger community](https://www.hyperledger.org/community):
 
 * Participate on the [Hyperledger mailing lists](http://lists.hyperledger.org/)
 
