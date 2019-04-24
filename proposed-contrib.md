@@ -30,7 +30,7 @@ Blockstream is contributing [the Elements Project](https://elementsproject.org),
 
 [https://github.com/ElementsProject/elements](https://github.com/ElementsProject/elements)
 
-## Intel's Swatooth Lake
+## Intel's Sawtooth Lake
 
 Designed for versatility and scalability, [Sawtooth Lake](http://intelledger.github.io/) is Intel’s modular blockchain suite.  Distributed Ledger Technology has potential in many fields with use cases from IoT to Financials.  This architecture recognizes the diversity of requirements across that spectrum.  Sawtooth Lake supports both permissioned and permissionless deployments.  It includes a novel consensus algorithm, Proof of Elapsed Time (PoET).  PoET targets large distributed validator populations with minimal resource consumption.  Transaction business logic is decoupled from the consensus layer into Transaction Families that allow for restricted or unfettered semantics.
 
