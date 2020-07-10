@@ -2,3 +2,4 @@
 # theme: just-the-docs
 remote_theme: pmarsceill/just-the-docs
 logo: "hyperledger-logo.png"
+url: "https://hyperledger.github.io/hyperledger/"
