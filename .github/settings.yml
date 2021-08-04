@@ -1,6 +1,6 @@
 repository:
   name: hyperledger
-  description: Hyperledger Project is a new Collaborative Project at The Linux Foundation. The technical community is just getting started and will be adding code to the repository in the coming weeks. Check hyperledger.org for more information about joining the mailing lists and participating in the conversations.
+  description: Hyperledger is a Collaborative Project at The Linux Foundation.
   homepage: https://www.hyperledger.org
   default_branch: gh-pages
   has_downloads: false
