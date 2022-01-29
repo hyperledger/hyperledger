@@ -11,5 +11,5 @@ Please take a look at our websites!
 
 * [Main website](https://hyperledger.org/)
 * [wiki](https://wiki.hyperledger.org/)
-* [TSC](https://hyperledger.github.io/tsc/)
+* [TSC](https://tsc.hyperledger.org)
 * [chat](https://chat.hyperledger.org)
